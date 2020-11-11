@@ -4,6 +4,6 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "test";
 
-$conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 
 ?>
