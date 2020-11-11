@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: ../image/background.png;
-background-size: cover;
+background-image: url("../image/background.png");
+background-size: contain;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
@@ -16,7 +16,7 @@ align-content: center;
 }
 
 .card{
-height: 400px;
+height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
