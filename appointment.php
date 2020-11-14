@@ -1,82 +1,6 @@
 <?php
-	include 'includes/db.connect.php'
-?>
-<?php
-	// mysql select query
-	$query = "SELECT * FROM `faculty`";
-
-	// for method 1
-	$result1 = mysqli_query($connect, $query);
-
-	$options = "";
-
-	while($row2 = mysqli_fetch_array($result1))
-	{
-    	$options = $options."<option>$row2[1]</option>";
-	}
-
-	// mysql select query
-	$query = "SELECT * FROM `room`";
-
-	// for method 1
-	$result1 = mysqli_query($connect, $query);
-
-	$options2 = "";
-
-	while($row2 = mysqli_fetch_array($result1))
-	{
-    	$options2 = $options2."<option>$row2[1]</option>";
-	}
-
-	// mysql select query
-	$query = "SELECT * FROM `teacher`";
-
-	// for method 1
-	$result1 = mysqli_query($connect, $query);
-
-	$options3 = "";
-
-	while($row2 = mysqli_fetch_array($result1))
-	{
-    	$options3 = $options3."<option>$row2[1]</option>";
-	}
-
-	// mysql select query
-	$query = "SELECT * FROM `time`";
-
-	// for method 1
-	$result1 = mysqli_query($connect, $query);
-
-	$options4 = "";
-
-	while($row2 = mysqli_fetch_array($result1))
-	{
-    	$options4 = $options4."<option>$row2[1]</option>";
-	}
-?>
-
-<?php 
-
-if (isset($_POST['appointment_btn'])){
-	$faculty=$_POST['faculty'];
-	$teacher=$_POST['teacher'];
-	$room=$_POST['room'];
-	$time=$_POST['time'];
-	$dates=$_POST['dates'];
-
-	$query="INSERT INTO appointment (faculty,date,time,room,teacher)
-			VALUES ('$faculty','$dates','$time','$room','$teacher');";
-	$result = $connect->query($query);
-	if ($result) {
-		echo "Sucess";
-	}
-	else
-		echo "Fail";
-}	
+	include 'function/show.appointment.option.php'
  ?>
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -86,7 +10,7 @@ if (isset($_POST['appointment_btn'])){
 
 <body>
 	<h3>Appointment</h3>
-	<form name="appointment" action="appointment.php" method="POST">
+	<form name="appointment" action="function/add.appointment.php" method="POST">
 	<label class="col-md-4 control-label" for="faculty">Faculty :</label>
 	<select id="faculty" name="faculty" class="form-control">
 		<?php echo $options;?>
