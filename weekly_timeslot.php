@@ -9,23 +9,6 @@ $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 ?>
 <?php
 
-	$query = "SELECT * FROM `student`";
-	$result1 = mysqli_query($connect, $query);
-	$options0 = "";
-	while($row2 = mysqli_fetch_array($result1))
-	{
-    	$options0 = $options0."<option>$row2[1]</option>";
-	}
-
-
-	$query = "SELECT student_name FROM student";
-	$result1 = mysqli_query($connect, $query);
-	$options = "";
-	while($row2 = mysqli_fetch_array($result1))
-	{
-    	$options = $options."<option>$row2[1]</option>";
-	}
-
 
 	$query = "SELECT * FROM `teacher`";
 	$result1 = mysqli_query($connect, $query);
@@ -66,22 +49,16 @@ $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 ?>
 
 <?php 
-/*
-		<input type="text" id="student_id" name="student_id"><br>
 
-		<input type="text" id="student_name" name="student_name">
-}	
-*/
+
 if (isset($_POST['weekly_timeslot_btn'])){
-	$student_id = $_POST['student_id'];
-	$student_name = $_POST['student_name'];
 	$teacher_name =$_POST['teacher_name'];
 	$sem_name=$_POST['sem_name'];
 	$from_time=$_POST['from_time'];
 	$to_time=$_POST['to_time'];
 
-	$query="INSERT INTO timeslot (student_id,student_name,teacher_name,sem_name,from_time,to_time)
-			VALUES ('$student_id','$student_name','$teacher_name','$sem_name','$from_time','$to_time');";
+	$query="INSERT INTO timeslot (teacher_name,sem_name,from_time,to_time)
+			VALUES ('$teacher_name','$sem_name','$from_time','$to_time');";
 	$result = $connect->query($query);
 	if ($result) {
 		echo "Sucess";
@@ -105,18 +82,38 @@ if (isset($_POST['weekly_timeslot_btn'])){
 	<h1>Weekly Timeslot</h1>
 	<form name="weekly_timeslot.php" action="weekly_timeslot.php" method="POST">
 
+	<?php
+		$dbServername = "localhost";
+		$dbUsername = "root";
+		$dbPassword = "";
+		$dbName = "weekly_timeslot";
+		
+		$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+		
+		if(isset($_POST['submit'])){
+			$student_id = $_POST['student_id'];
+			$student_name = $_POST['student_name'];
+
+			$insert = mysqli_query($dbName,"INSERT INTO `student`(`student_id`,`student_name`) VALUES ('$student_id','$student_name')");
+
+			if(!$insert){
+				echo mysqli_error();
+			}else{
+				echo "Data Updated Successfully.";
+			}
+		}
+	?>
+
 	<form action="/weekly_timeslot.php">
 		<label for="student_id">Student ID: </label>
-		<select id="sem_name" name="sem_name" class="form-control" style="width: 150px;">
-				<?php echo $options0;?>
-		</select>
+		<input type="text" id="student_id" name="student_id"><br>
 		<br>
+
 		<label for="student_name">Student Name: </label>
-		<select id="sem_name" name="sem_name" class="form-control" style="width: 150px;">
-				<?php echo $options;?>
-		</select>
-		
+		<input type="text" id="student_name" name="student_name">
 		<br>
+		<br>
+
 	</form>
 
 
