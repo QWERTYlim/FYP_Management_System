@@ -76,8 +76,10 @@ $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 <head>
 	<title>Weekly Timeslot</title>
 </head>
-<a href='index.php'>Home</a>
+<link rel="stylesheet" type="text/css" href="css/blue.button.css">
+<button class="blue"><a href="index.php">Home</a></button>
 <body>
+	
 	<h1>Weekly Timeslot</h1>
 	<form name="weekly_timeslot.php" action="weekly_timeslot.php" method="POST">
 

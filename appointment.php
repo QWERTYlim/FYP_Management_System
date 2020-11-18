@@ -7,7 +7,8 @@
 <head>
 	<title>Make Appointment</title>
 </head>
-<a href='index.php'>Home</a>
+<link rel="stylesheet" type="text/css" href="css/blue.button.css">
+<button class="blue"><a href="index.php">Home</a></button>
 <body>
 	<h3>Appointment</h3>
 	<form name="appointment" action="function/add.appointment.php" method="POST">
