@@ -1,22 +1,22 @@
-<?php
-include 'includes/db.connect.php';
-error_reporting(0);
-$id=$_GET['id'];
-$query="DELETE FROM appointment WHERE id='$id'";
-$data=mysqli_query($connect,$query);
-
-if($data){
-    echo"cancel the request";
-    
-
-}
-
-?>
 <html>
-<head>
-</head>
+<link rel="stylesheet" type="text/css" href="css/blue.button.css">
+    <head></head>
 
-<body>
-<button class="blue"><a href="display_weeklyTimeslot.php">Display Weekly Timeslot</a></button>
-</body>
+    <body>
+    <?php
+    include 'includes/db.connect.php';
+    error_reporting(0);
+    $id=$_GET['id'];
+    $query="DELETE FROM timeslot WHERE id='$id'";
+    $data=mysqli_query($connect,$query);
+
+    if($data){
+        echo"cancel the request";
+    }
+
+    ?>
+    <br>
+    <br>
+    <button class="blue"><a href="Index.php">Home</a></button>
+    </body>
 </html>

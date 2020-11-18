@@ -45,7 +45,7 @@
                     <th>&nbsp".$result['sem_name']."</th>
                     <th>&nbsp".$result['from_time']."</th>
                     <th>&nbsp".$result['to_time']."</th>
-                    <th><a href='delete.php?id=$result[id]'>Delete</a></th>
+                    <th><a href='deleteTimeslot.php?id=$result[id]'>Delete</a></th>
                    <br>
                    <br>
                 </tr>
