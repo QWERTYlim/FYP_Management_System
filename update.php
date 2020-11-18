@@ -19,6 +19,7 @@ echo "<tr>";
 	echo "<td>";echo"Time";echo "</td>";
 	echo "<td>";echo"Room";echo "</td>";
 	echo "<td>";echo"Teacher";echo "</td>";
+	echo "<td>";echo"Accept/Decline";echo "</td>";
 echo"</tr>";
 while($row=mysqli_fetch_array($res)){
 	echo "<tr>";
@@ -28,7 +29,10 @@ while($row=mysqli_fetch_array($res)){
 	echo "<td>";echo $row["time"];echo "</td>";
 	echo "<td>";echo $row["room"];echo "</td>";
 	echo "<td>";echo $row["teacher"];echo "</td>";
-	echo "<td>";?><input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="delete" onclick="delete1(this.id)">
+	echo "<td>";?>
+	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Decline" onclick="decline(this.id)">
+	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Accept" onclick="accept(this.id)">
+
 	<?php echo "</td";
 	echo"</tr>";
  }
