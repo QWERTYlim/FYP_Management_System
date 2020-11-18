@@ -9,34 +9,9 @@
 <head>
 <title>Appointment Approve</title>
 <link rel="stylesheet" type="text/css" href="css/blue.button.css">
+<link rel="stylesheet" type="text/css" href="css/table.css">
 <button class="blue"><a href="index.php">Home</a></button>
-<style type="text/css">
-        table
-        {
-            border-collapse: collapse;
-            margin: 0 auto;
-            text-align: center;
-        }
-        table td, table th
-        {
-            border: 1px solid #cad9ea;
-            color: #666;
-            height: 30px;
-        }
-        table thead th
-        {
-            background-color: #CCE8EB;
-            width: 100px;
-        }
-        table tr:nth-child(odd)
-        {
-            background: #fff;
-        }
-        table tr:nth-child(even)
-        {
-            background: #F5FAFA;
-        }
-    </style>
+
 </head>
 <a href='index.php'>Home</a>
 <body>
@@ -55,7 +30,6 @@
 $query = "SELECT * FROM appointment";
 $data = mysqli_query($connect,$query);
 $total = mysqli_num_rows($data);
-
 if($total!=0){
 		while($result=mysqli_fetch_assoc($data)){
 			echo "
@@ -65,7 +39,7 @@ if($total!=0){
 			<th>&nbsp".$result['date']."</th>
 			<th>&nbsp".$result['time']."</th>
 			<th>&nbsp".$result['room']."</th>
-			<th>&nbsp	".$result['teacher']."</th>
+			<th>&nbsp".$result['teacher']."</th>
 			<th><a href='delete.php?id=$result[id]'>Decline</a></th>
 		   <br>
 		   <br>
