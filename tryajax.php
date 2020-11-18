@@ -17,10 +17,17 @@
  		xmlhttp.send(null);
  		document.getElementById("disp_data").innerHTML=xmlhttp.responseText; 
  	}
-	 function delete1(id)
+	 function decline(id)
 	 {
 		 var xmlhttp=new XMLHttpRequest();
-		 xmlhttp.open("GET","update.php?id="+id+"&status=delete",false);
+		 xmlhttp.open("GET","update.php?id="+id+"&status=decline",false);
+		 xmlhttp.send(null);
+		 disp_data();
+	 }
+	 function approve(id)
+	 {
+		 var xmlhttp=new XMLHttpRequest();
+		 xmlhttp.open("GET","update.php?id="+id+"&status=approve",false);
 		 xmlhttp.send(null);
 		 disp_data();
 	 }
