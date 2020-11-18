@@ -33,7 +33,7 @@ while($row=mysqli_fetch_array($res)){
 	echo "<td>";echo $row["teacher"];echo "</td>";
 	echo "<td>";echo $row["approval"];echo "</td>";
 	echo "<td>";?>
-	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="accept" onclick="approve(this.id)">
+	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="approve" onclick="approve(this.id)">
 	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="decline" onclick="decline(this.id)">
 	<?php echo "</td";
 	echo"</tr>";
@@ -44,13 +44,13 @@ while($row=mysqli_fetch_array($res)){
 if($status=="decline"){
 	$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 	$id=$_GET["id"];
-	$query = "update appointment set approval='0' where id=$id";
+	$query = "update appointment set approval='Decline' where id=$id";
 	$res = mysqli_query($connect,$query); 
 }
 if($status=="approve"){
 	$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 	$id=$_GET["id"];
-	$query = "update appointment set approval='1' where id=$id";
+	$query = "update appointment set approval='Approve' where id=$id";
 	$res = mysqli_query($connect,$query); 
 }
  ?>
