@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Appointment Approve</title>
+    <title>Display Weekly Timeslot</title>
     <link rel="stylesheet" type="text/css" href="css/blue.button.css">
     <link rel="stylesheet" type="text/css" href="css/table.css">
     <button class="blue"><a href="index.php" class="blue">Home</a></button>
