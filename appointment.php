@@ -5,9 +5,9 @@
 <html>
 
 <head>
-	<title></title>
+	<title>Make Appointment</title>
 </head>
-
+<a href='index.php'>Home</a>
 <body>
 	<h3>Appointment</h3>
 	<form name="appointment" action="function/add.appointment.php" method="POST">
