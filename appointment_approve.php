@@ -7,11 +7,20 @@
 <html>
 
 <head>
-	<title>Appointment Approve</title>
+<title>Appointment Approve</title>
 </head>
 <a href='index.php'>Home</a>
 <body>
 <h3>Pending Approvement</h3>
+<table>
+<tr>
+	<th>ID</th>
+	<th>Faculty</th>
+	<th>Date</th>
+	<th>Time</th>
+	<th>Room</th>
+	<th>Teacher</th>
+</tr>
 <?php
 $query = "SELECT * FROM appointment";
 $data = mysqli_query($connect,$query);
@@ -21,12 +30,12 @@ if($total!=0){
 		while($result=mysqli_fetch_assoc($data)){
 			echo "
 			<tr>
-			<th>ID:&nbsp".$result['id']."&nbsp</th>
-			<th>Faculty:&nbsp".$result['faculty']."&nbsp</th>
-			<th>Date:&nbsp".$result['date']."&nbsp</th>
-			<th>Time:&nbsp".$result['time']."&nbsp</th>
-			<th>Room:&nbsp".$result['room']."&nbsp</th>
-			<th>Teacher:&nbsp	".$result['teacher']."</th>
+			<th>&nbsp".$result['id']."</th>
+			<th>&nbsp".$result['faculty']."</th>
+			<th>&nbsp".$result['date']."</th>
+			<th>&nbsp".$result['time']."</th>
+			<th>&nbsp".$result['room']."</th>
+			<th>&nbsp	".$result['teacher']."</th>
 			<th><a href='delete.php?id=$result[id]'>Decline</a></th>
 		   <br>
 		   <br>
@@ -34,8 +43,12 @@ if($total!=0){
 		";
 		}
 }
+else{
+	echo "0 result";
+}
 
 ?>
+</table>
 </body>
 
 </html>
