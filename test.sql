@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2020 at 06:34 AM
+-- Generation Time: Nov 18, 2020 at 08:28 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -37,14 +37,6 @@ CREATE TABLE `appointment` (
   `student_id` varchar(15) NOT NULL,
   `student_name` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `appointment`
---
-
-INSERT INTO `appointment` (`id`, `faculty`, `date`, `time`, `room`, `teacher`, `student_id`, `student_name`) VALUES
-(1, 'Engineering', '2020-11-12', '8.00', '115a', 'Lim Pei Geok', '', ''),
-(2, 'Engineering', '2020-11-12', '8.00', '115a', 'Lim Pei Geok', '', '');
 
 -- --------------------------------------------------------
 
@@ -93,6 +85,26 @@ INSERT INTO `room` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sem`
+--
+
+CREATE TABLE `sem` (
+  `id` int(5) NOT NULL,
+  `sem_name` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sem`
+--
+
+INSERT INTO `sem` (`id`, `sem_name`) VALUES
+(1, '2020A'),
+(2, '2020B'),
+(3, '2020C');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teacher`
 --
 
@@ -126,10 +138,43 @@ CREATE TABLE `time` (
 --
 
 INSERT INTO `time` (`id`, `time`) VALUES
-(1, '8.00'),
-(2, '8.30'),
-(3, '9.00'),
-(4, '9.30');
+(1, '8.00am'),
+(2, '8.30am'),
+(3, '9.00am'),
+(4, '9.30am'),
+(5, '10:00am'),
+(6, '11:00am'),
+(7, '12:00pm'),
+(8, '1:00am'),
+(9, '2:00pm'),
+(10, '3:00pm'),
+(11, '4:00pm'),
+(12, '5:00pm'),
+(13, '6:00pm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timeslot`
+--
+
+CREATE TABLE `timeslot` (
+  `id` int(5) NOT NULL,
+  `student_id` varchar(8) NOT NULL,
+  `student_name` varchar(30) NOT NULL,
+  `teacher_name` varchar(30) NOT NULL,
+  `sem_name` varchar(5) NOT NULL,
+  `from_time` varchar(7) NOT NULL,
+  `to_time` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timeslot`
+--
+
+INSERT INTO `timeslot` (`id`, `student_id`, `student_name`, `teacher_name`, `sem_name`, `from_time`, `to_time`) VALUES
+(2, 'WWW', 'QQQ', 'Lim Pei Geok', '2020A', '8.00am', '8.00am'),
+(3, 'wqeq', 'qweqweqw', 'Lim Pei Geok', '2020A', '8.00am', '8.00am');
 
 -- --------------------------------------------------------
 
@@ -174,6 +219,12 @@ ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sem`
+--
+ALTER TABLE `sem`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teacher`
 --
 ALTER TABLE `teacher`
@@ -183,6 +234,12 @@ ALTER TABLE `teacher`
 -- Indexes for table `time`
 --
 ALTER TABLE `time`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `timeslot`
+--
+ALTER TABLE `timeslot`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -199,7 +256,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -214,6 +271,12 @@ ALTER TABLE `room`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `sem`
+--
+ALTER TABLE `sem`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
@@ -223,7 +286,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `time`
 --
 ALTER TABLE `time`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `timeslot`
+--
+ALTER TABLE `timeslot`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
