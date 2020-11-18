@@ -8,7 +8,7 @@
     <title>Appointment Approve</title>
     <link rel="stylesheet" type="text/css" href="css/blue.button.css">
     <link rel="stylesheet" type="text/css" href="css/table.css">
-    <button class="blue"><a href="index.php">Home</a></button>
+    <button class="blue"><a href="index.php" class="blue">Home</a></button>
 
     </head>
 
