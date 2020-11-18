@@ -1,10 +1,5 @@
 <?php
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "weekly_timeslot";
-
-$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+	include 'includes/db.connect.php'
 ?>
 
 
@@ -27,7 +22,7 @@ $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 		}
 
 
-		$query = "SELECT * FROM `from_time`";
+		$query = "SELECT * FROM `time`";
 		$result1 = mysqli_query($connect, $query);
 		$options3 = "";
 		while($row2 = mysqli_fetch_array($result1))
@@ -36,7 +31,7 @@ $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 		}
 
 
-		$query = "SELECT * FROM `to_time`";
+		$query = "SELECT * FROM `time`";
 		$result1 = mysqli_query($connect, $query);
 		$options4 = "";
 		while($row2 = mysqli_fetch_array($result1))
