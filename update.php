@@ -33,8 +33,8 @@ while($row=mysqli_fetch_array($res)){
 	echo "<td>";echo $row["teacher"];echo "</td>";
 	echo "<td>";echo $row["approval"];echo "</td>";
 	echo "<td>";?>
-	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="approve" onclick="approve(this.id)">
-	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="decline" onclick="decline(this.id)">
+	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Approve" onclick="approve(this.id)">
+	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Decline" onclick="if (!confirm('Are you sure?')) { return false };decline(this.id)">
 	<?php echo "</td";
 	echo"</tr>";
  }
