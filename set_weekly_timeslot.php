@@ -76,7 +76,7 @@
 <body>
 	
 	<h1>Weekly Timeslot</h1>
-	<form name="weekly_timeslot.php" action="weekly_timeslot.php" method="POST">
+	<form name="set_weekly_timeslot.php" action="set_weekly_timeslot.php" method="POST">
 
 	<label for="studentID">Student ID: </label>
 	<input type="text" id="student_id" name="student_id"><br>
