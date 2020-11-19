@@ -50,7 +50,7 @@
             echo "<td>";echo $row["to_time"];echo "</td>";
             echo "<td>";?>
             
-	        <input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Delete" onclick="delete1(this.id)">
+	        <input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Decline" onclick="decline(this.id)">
 
             <?php echo "</td";
             echo"</tr>";
