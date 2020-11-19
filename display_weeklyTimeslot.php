@@ -50,7 +50,7 @@
             echo "<td>";echo $row["to_time"];echo "</td>";
             echo "<td>";?>
             
-	        <input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Decline" onclick="decline(this.id)">
+	        <input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Delete" onclick="delete1(this.id)">
 
             <?php echo "</td";
             echo"</tr>";
@@ -61,7 +61,7 @@
         if($status=="delete"){
             $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
             $id=$_GET["id"];
-            $query = "DELETE FROM appointment where id=$id";
+            $query = "DELETE FROM timeslot where id=$id";
             $res = mysqli_query($connect,$query); 
         }
         ?>
