@@ -1,6 +1,6 @@
-<?php include 'includes/db.connect.php';?>
+<?php include '../includes/db.connect.php';?>
 <style>
-<?php include 'css/table.css';?>
+<?php include '../css/table.css';?>
 </style>
 
 <?php

@@ -9,15 +9,15 @@
 <button class='blue'><a href='appointment.php' class="blue">Make Appointment</a></button>
 <br>
 <br>
-<button class='blue'><a href='appointment_approve.php' class="blue">Approve</a></button>
+<button class='blue'><a href='approve.php' class="blue">Approve</a></button>
 <br>
 <br>
-<button class='blue'><a href='weekly_timeslot.php' class="blue">Weekly Timeslot</a></button>
+<button class='blue'><a href='set_weekly_timeslot.php' class="blue">Weekly Timeslot</a></button>
 <br>
 <br>
-<button class='blue'><a href='timeslot_ajax.php' class="blue"> Display Weekly Timeslot</a></button>
+<button class='blue'><a href='timeslot.php' class="blue">Delete Weekly Timeslot</a></button>
 <br>
 <br>
-<button class='blue'><a href='tryajax.php' class="blue">Ajax</a></button>
+
 </body>
 </html>
