@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<button class='blue'><a href='appointment.php' class="blue">Make Appointment</a></button>
+<button class='blue'><a href='set_appointment.php' class="blue">Make Appointment</a></button>
 <br>
 <br>
 <button class='blue'><a href='approve.php' class="blue">Approve</a></button>
