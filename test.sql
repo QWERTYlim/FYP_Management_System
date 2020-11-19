@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 08:28 AM
+-- Generation Time: Nov 19, 2020 at 08:51 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -35,8 +35,16 @@ CREATE TABLE `appointment` (
   `room` varchar(15) NOT NULL,
   `teacher` varchar(30) NOT NULL,
   `student_id` varchar(15) NOT NULL,
-  `student_name` varchar(15) NOT NULL
+  `student_name` varchar(15) NOT NULL,
+  `approval` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`id`, `faculty`, `date`, `time`, `room`, `teacher`, `student_id`, `student_name`, `approval`) VALUES
+(31, 'Information Technology', '2020-11-26', '9.00am', '115a', 'Chan Ler-Kuan', '', '', 'Approve');
 
 -- --------------------------------------------------------
 
@@ -173,8 +181,7 @@ CREATE TABLE `timeslot` (
 --
 
 INSERT INTO `timeslot` (`id`, `student_id`, `student_name`, `teacher_name`, `sem_name`, `from_time`, `to_time`) VALUES
-(2, 'WWW', 'QQQ', 'Lim Pei Geok', '2020A', '8.00am', '8.00am'),
-(3, 'wqeq', 'qweqweqw', 'Lim Pei Geok', '2020A', '8.00am', '8.00am');
+(16, 'D180293B', 'Lim Yu Jie', 'Lim Pei Geok', '2020A', '8.00am', '8.00am');
 
 -- --------------------------------------------------------
 
@@ -256,7 +263,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -292,7 +299,7 @@ ALTER TABLE `time`
 -- AUTO_INCREMENT for table `timeslot`
 --
 ALTER TABLE `timeslot`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
