@@ -2,10 +2,10 @@
 -- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 19, 2020 at 08:51 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- 主机： 127.0.0.1
+-- 生成日期： 2020-11-25 09:40:26
+-- 服务器版本： 10.4.14-MariaDB
+-- PHP 版本： 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- 数据库： `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
+-- 表的结构 `appointment`
 --
 
 CREATE TABLE `appointment` (
@@ -40,16 +40,17 @@ CREATE TABLE `appointment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `appointment`
+-- 转存表中的数据 `appointment`
 --
 
 INSERT INTO `appointment` (`id`, `faculty`, `date`, `time`, `room`, `teacher`, `student_id`, `student_name`, `approval`) VALUES
-(31, 'Information Technology', '2020-11-26', '9.00am', '115a', 'Chan Ler-Kuan', '', '', 'Approve');
+(31, 'Information Technology', '2020-11-26', '9.00am', '115a', 'Chan Ler-Kuan', '', '', 'Approve'),
+(32, 'Engineering', '0000-00-00', '8.00am', '115a', 'Lim Pei Geok', '', '', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faculty`
+-- 表的结构 `faculty`
 --
 
 CREATE TABLE `faculty` (
@@ -59,7 +60,7 @@ CREATE TABLE `faculty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `faculty`
+-- 转存表中的数据 `faculty`
 --
 
 INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `designation`) VALUES
@@ -73,7 +74,7 @@ INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `designation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room`
+-- 表的结构 `room`
 --
 
 CREATE TABLE `room` (
@@ -82,7 +83,7 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `room`
+-- 转存表中的数据 `room`
 --
 
 INSERT INTO `room` (`id`, `name`) VALUES
@@ -93,7 +94,7 @@ INSERT INTO `room` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sem`
+-- 表的结构 `sem`
 --
 
 CREATE TABLE `sem` (
@@ -102,7 +103,7 @@ CREATE TABLE `sem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sem`
+-- 转存表中的数据 `sem`
 --
 
 INSERT INTO `sem` (`id`, `sem_name`) VALUES
@@ -113,7 +114,28 @@ INSERT INTO `sem` (`id`, `sem_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teacher`
+-- 表的结构 `studentinfo`
+--
+
+CREATE TABLE `studentinfo` (
+  `id` int(11) NOT NULL,
+  `StudentID` varchar(8) NOT NULL,
+  `Password` varchar(8) NOT NULL,
+  `PhoneNumber` varchar(11) NOT NULL,
+  `Email` char(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `studentinfo`
+--
+
+INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `PhoneNumber`, `Email`) VALUES
+(1, 'D190250B', 'CC07836R', '123-1234567', 'alex@gmail.com.my');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `teacher`
 --
 
 CREATE TABLE `teacher` (
@@ -123,7 +145,7 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `teacher`
+-- 转存表中的数据 `teacher`
 --
 
 INSERT INTO `teacher` (`teacher_id`, `name`, `facultyid`) VALUES
@@ -133,7 +155,7 @@ INSERT INTO `teacher` (`teacher_id`, `name`, `facultyid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `time`
+-- 表的结构 `time`
 --
 
 CREATE TABLE `time` (
@@ -142,7 +164,7 @@ CREATE TABLE `time` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `time`
+-- 转存表中的数据 `time`
 --
 
 INSERT INTO `time` (`id`, `time`) VALUES
@@ -163,7 +185,7 @@ INSERT INTO `time` (`id`, `time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `timeslot`
+-- 表的结构 `timeslot`
 --
 
 CREATE TABLE `timeslot` (
@@ -177,7 +199,7 @@ CREATE TABLE `timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `timeslot`
+-- 转存表中的数据 `timeslot`
 --
 
 INSERT INTO `timeslot` (`id`, `student_id`, `student_name`, `teacher_name`, `sem_name`, `from_time`, `to_time`) VALUES
@@ -186,7 +208,7 @@ INSERT INTO `timeslot` (`id`, `student_id`, `student_name`, `teacher_name`, `sem
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- 表的结构 `user`
 --
 
 CREATE TABLE `user` (
@@ -196,7 +218,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- 转存表中的数据 `user`
 --
 
 INSERT INTO `user` (`ID`, `Username`, `Password`) VALUES
@@ -204,105 +226,117 @@ INSERT INTO `user` (`ID`, `Username`, `Password`) VALUES
 (2, 'lim', '123');
 
 --
--- Indexes for dumped tables
+-- 转储表的索引
 --
 
 --
--- Indexes for table `appointment`
+-- 表的索引 `appointment`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `faculty`
+-- 表的索引 `faculty`
 --
 ALTER TABLE `faculty`
   ADD PRIMARY KEY (`faculty_id`);
 
 --
--- Indexes for table `room`
+-- 表的索引 `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sem`
+-- 表的索引 `sem`
 --
 ALTER TABLE `sem`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `teacher`
+-- 表的索引 `studentinfo`
+--
+ALTER TABLE `studentinfo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 表的索引 `teacher`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`teacher_id`);
 
 --
--- Indexes for table `time`
+-- 表的索引 `time`
 --
 ALTER TABLE `time`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `timeslot`
+-- 表的索引 `timeslot`
 --
 ALTER TABLE `timeslot`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- 表的索引 `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 在导出的表使用AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `appointment`
+-- 使用表AUTO_INCREMENT `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT for table `faculty`
+-- 使用表AUTO_INCREMENT `faculty`
 --
 ALTER TABLE `faculty`
   MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `room`
+-- 使用表AUTO_INCREMENT `room`
 --
 ALTER TABLE `room`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `sem`
+-- 使用表AUTO_INCREMENT `sem`
 --
 ALTER TABLE `sem`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `teacher`
+-- 使用表AUTO_INCREMENT `studentinfo`
+--
+ALTER TABLE `studentinfo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- 使用表AUTO_INCREMENT `teacher`
 --
 ALTER TABLE `teacher`
   MODIFY `teacher_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `time`
+-- 使用表AUTO_INCREMENT `time`
 --
 ALTER TABLE `time`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `timeslot`
+-- 使用表AUTO_INCREMENT `timeslot`
 --
 ALTER TABLE `timeslot`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `user`
+-- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
