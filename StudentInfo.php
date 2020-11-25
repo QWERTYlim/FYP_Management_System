@@ -13,8 +13,8 @@
 
 <body>
 	<h3>Student Info</h3>
-	<form name="StudentInfo" action="function/login_function.php" method="POST">
-    <?php echo $StudentID;?>
+	<form name="StudentInfo" action="function/add_StudentInfo.php" method="POST">
+    
 		<label class="col-md-4 control-label" for="PhoneNumber">Phone Number :</label>
 		<input type="tel" id="PhoneNumber" name="PhoneNumber" placeholder="123-4556678" pattern="[0-9]{3}-[0-9]{7}" required>
 			
@@ -27,7 +27,7 @@
 		<br>
 		
 		<button id="StudentInfo_btn" name="StudentInfo_btn">Enter</button>
-   <a href="function/logout_function.php" tite="Logout">Logout.x
+   <a href="function/logout_function.php" tite="Logout">Logout.
 	</form>
 </body>
 
