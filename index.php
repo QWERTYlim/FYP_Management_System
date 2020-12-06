@@ -18,6 +18,8 @@
 <button class='blue'><a href='timeslot.php' class="blue">Delete Weekly Timeslot</a></button>
 <br>
 <br>
+<button class='blue'><a href='login.php' class="blue">Login</a></button>
+<br>
 
 </body>
 </html>

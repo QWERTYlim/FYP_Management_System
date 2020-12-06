@@ -44,13 +44,13 @@ while($row=mysqli_fetch_array($res)){
 if($status=="decline"){
 	$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 	$id=$_GET["id"];
-	$query = "update appointment set approval='Decline' where id=$id";
+	$query = "update appointment set approval='Decline' where id='$id'";
 	$res = mysqli_query($connect,$query); 
 }
 if($status=="approve"){
 	$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 	$id=$_GET["id"];
-	$query = "update appointment set approval='Approve' where id=$id";
+	$query = "update appointment set approval='Approve' where id='$id'";
 	$res = mysqli_query($connect,$query); 
 }
  ?>
