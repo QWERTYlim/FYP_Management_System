@@ -12,7 +12,7 @@
         $result1=mysqli_query($connect,$query);
     
         if($result1){
-            echo'<script type="text/javascript"> alert("Data Update")</script>';
+            header("location:../StudentInfo.php?update=successful");
         }else{
             echo'<script type="text/javascript"> alert("Data not Update")</script>';
         }

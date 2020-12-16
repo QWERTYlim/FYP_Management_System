@@ -9,7 +9,7 @@ if(isset($_POST['StudentID'])){
     $_SESSION['StudentID']=$StudentID;
     $result=mysqli_query($connect,"SELECT*FROM studentinfo where StudentID='".$StudentID."'and Password='".$Password."' ");
 	if(mysqli_num_rows($result)>0){
-        header("location:../StudentInfo.php?user=$StudentID");
+        header("location:../StudentHome.php?user=$StudentID");
     }
     else{
         header("location:../login.php");

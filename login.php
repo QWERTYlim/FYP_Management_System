@@ -1,4 +1,10 @@
 <?php include 'includes/db.connect.php'?>
+<?php
+if(isset($_SESSION['StudentID']))
+{
+	header("Location:../StudentHome.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +30,7 @@
 	</p>	
 	<p>
 	
-	<button id="btn" name="btn">Make appointment</button>
+	<button id="btn" name="btn">Enter</button>
 
 	</p>	
 
