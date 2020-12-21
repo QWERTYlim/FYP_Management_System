@@ -12,7 +12,8 @@
         $result1=mysqli_query($connect,$query);
     
         if($result1){
-            header("location:../StudentInfo.php?update=successful");
+            echo'<script> alert("Data was Update")</script>';
+            echo'<script>window.location="../StudentUpdateInfo.php"</script>';
         }else{
             echo'<script type="text/javascript"> alert("Data not Update")</script>';
         }

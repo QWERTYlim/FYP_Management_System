@@ -19,7 +19,7 @@
 <br>
 <br>
 
-<button class='blue'><a href='login.php' class="blue">login</a></button>
+<button class='blue'><a href='login.php' class="blue">Login</a></button>
 <br>
 <br>
 
