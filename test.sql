@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2020-12-21 12:39:16
--- 服务器版本： 10.4.14-MariaDB
--- PHP 版本： 7.4.11
+-- 生成日期： 2020-12-21 12:45:40
+-- 服务器版本： 10.4.17-MariaDB
+-- PHP 版本： 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -258,16 +258,17 @@ INSERT INTO `uploadreport` (`id`, `sid`, `filetitle`, `file`, `comment`, `teache
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
   `Username` varchar(30) NOT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(20) NOT NULL,
+  `Identity` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 转存表中的数据 `user`
 --
 
-INSERT INTO `user` (`ID`, `Username`, `Password`) VALUES
-(1, 'admin', 'admin'),
-(2, 'lim', '123');
+INSERT INTO `user` (`ID`, `Username`, `Password`, `Identity`) VALUES
+(1, 'admin', 'admin', 'Normal'),
+(2, 'lim', '123', 'Admin');
 
 --
 -- 转储表的索引
