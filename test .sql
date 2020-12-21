@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2020-11-25 09:40:26
+-- 生成日期： 2020-12-21 12:39:16
 -- 服务器版本： 10.4.14-MariaDB
 -- PHP 版本： 7.4.11
 
@@ -130,7 +130,7 @@ CREATE TABLE `studentinfo` (
 --
 
 INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `PhoneNumber`, `Email`) VALUES
-(1, 'D190250B', 'CC07836R', '123-1234567', 'alex@gmail.com.my');
+(1, 'D190250B', 'CC07836R', '017-4139389', 'alex@gmail.com.my');
 
 -- --------------------------------------------------------
 
@@ -208,6 +208,50 @@ INSERT INTO `timeslot` (`id`, `student_id`, `student_name`, `teacher_name`, `sem
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `uploadref`
+--
+
+CREATE TABLE `uploadref` (
+  `id` int(11) NOT NULL,
+  `filetitle` varchar(11) NOT NULL,
+  `file` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `uploadref`
+--
+
+INSERT INTO `uploadref` (`id`, `filetitle`, `file`) VALUES
+(14, '11promax', '3766-11-pro');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `uploadreport`
+--
+
+CREATE TABLE `uploadreport` (
+  `id` int(5) NOT NULL,
+  `sid` varchar(8) NOT NULL,
+  `filetitle` varchar(30) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `teacherName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `uploadreport`
+--
+
+INSERT INTO `uploadreport` (`id`, `sid`, `filetitle`, `file`, `comment`, `teacherName`) VALUES
+(1, 'D190250B', '11promax', '8109-1.png', '', '0'),
+(3, '', '11promax', '5164-11-pro-max-2.jpg', '', '0'),
+(4, '', '11promax', '1158-Apple_announce-iphone12pro_10132020.jpg.landing-big_2x.jpg', '', 'Lim Pei Geok'),
+(5, 'D190250B', 'Ayam Goreng McD™ Regular (9pcs', '4135-618ZI2Xyw+L._AC_SL1500_.jpg', '', 'Chan Ler-Kuan');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `user`
 --
 
@@ -278,6 +322,18 @@ ALTER TABLE `timeslot`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 表的索引 `uploadref`
+--
+ALTER TABLE `uploadref`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 表的索引 `uploadreport`
+--
+ALTER TABLE `uploadreport`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 表的索引 `user`
 --
 ALTER TABLE `user`
@@ -334,6 +390,18 @@ ALTER TABLE `time`
 --
 ALTER TABLE `timeslot`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- 使用表AUTO_INCREMENT `uploadref`
+--
+ALTER TABLE `uploadref`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- 使用表AUTO_INCREMENT `uploadreport`
+--
+ALTER TABLE `uploadreport`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用表AUTO_INCREMENT `user`
