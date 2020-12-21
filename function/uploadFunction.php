@@ -9,6 +9,9 @@ if (isset($_POST["submit"]))
     $title = $_POST["title"];
     $pname = rand(1000,10000)."-".$_FILES["file"]["name"];
     $tname = $_FILES["file"]["tmp_name"];
+    $file=$_FILES["file"];
+    move_uploaded_file($file["tmp_name"],"../ref_upload/".$file["name"]);
+    
 
     $sql = "INSERT into uploadref(filetitle,file) VALUES('$title','$pname')";
     

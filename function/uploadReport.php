@@ -22,6 +22,8 @@ if (isset($_POST["submit"]))
     $title = $_POST["title"];
     $pname = rand(1000,10000)."-".$_FILES["file"]["name"];
     $tname = $_FILES["file"]["tmp_name"];
+    $file=$_FILES["file"];
+    move_uploaded_file($file["tmp_name"],"../report_upload/".$file["name"]);
 
     $sql = "INSERT into uploadreport(sid,filetitle,file,teacherName) VALUES('$SID','$title','$pname','$teacher')";
     

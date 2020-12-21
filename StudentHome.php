@@ -25,10 +25,16 @@ session_start();
 <button class='blue'><a href="uploadRef.php" class="blue">Upload File</a></button>
 <br>
 <br>
+<button class='blue'><a href="downloadRef.php" class="blue">Download File</a></button>
+<br>
+<br>
 <button class='blue'><a href="showUpload.php" class="blue">Reference File</a></button>
 <br>
 <br>
 <button class='blue'><a href="uploadReport.php" class="blue">Upload Report</a></button>
+<br>
+<br>
+<button class='blue'><a href="downloadReport.php" class="blue">Download Report</a></button>
 <br>
 <br>
 </body>
