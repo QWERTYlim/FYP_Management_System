@@ -22,6 +22,10 @@
 <button class='blue'><a href='login.php' class="blue">Login</a></button>
 <br>
 <br>
+<button class='blue'><a href='make_administrator.php' class="blue">5B)</a></button>
+<br>
+<br>
+
 
 
 </body>
