@@ -48,11 +48,13 @@
 		$student_name = $_POST['student_name'];
 		$teacher_name =$_POST['teacher_name'];
 		$sem_name=$_POST['sem_name'];
+		$week = $_POST['week'];
+		$dates = $_POST['dates'];
 		$from=$_POST['from'];
 		$to=$_POST['to'];
 
-		$query="INSERT INTO timeslot (student_id,student_name,teacher_name,sem_name,from_time,to_time)
-				VALUES ('$student_id','$student_name','$teacher_name','$sem_name','$from','$to');";
+		$query="INSERT INTO timeslot (student_id,student_name,teacher_name,sem_name,week,date,from_time,to_time)
+				VALUES ('$student_id','$student_name','$teacher_name','$sem_name','$week','$dates','$from','$to');";
 		$result = $connect->query($query);
 		if ($result) {
 			echo "Sucess";
@@ -98,6 +100,12 @@
 	<select id="sem_name" name="sem_name" class="form-control" style="width: 150px;">
 				<?php echo $options2;?>
 	</select>
+	<br>
+	<label for="week">Week: </label>
+	<input type="text" id="week" name="week">
+	<br>
+	<label for="dates">Date: </label>
+	<input type="date" id="dates" name="dates">
 	<br>
 	<label class="col-md-4 control-label" for="from">From Time: </label>
 	<select id="from" name="from" class="form-control">
