@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2020-12-21 12:45:40
--- 服务器版本： 10.4.17-MariaDB
--- PHP 版本： 8.0.0
+-- 生成日期： 2020-12-28 17:55:35
+-- 服务器版本： 10.4.14-MariaDB
+-- PHP 版本： 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,6 +74,49 @@ INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `designation`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `files`
+--
+
+CREATE TABLE `files` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
+  `downloads` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `files`
+--
+
+INSERT INTO `files` (`id`, `name`, `size`, `downloads`) VALUES
+(1, 'D180293B_LImYuJie.zip', 771723, 9),
+(2, 'jar_files.zip', 121859, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `formrequest`
+--
+
+CREATE TABLE `formrequest` (
+  `id` int(11) NOT NULL,
+  `sid` varchar(8) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
+  `request` varchar(255) NOT NULL,
+  `teacher` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `formrequest`
+--
+
+INSERT INTO `formrequest` (`id`, `sid`, `file`, `size`, `request`, `teacher`) VALUES
+(4, 'D190250B', 'Test2020C.pdf', 124066, '', 'Lim Pei Geok');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `room`
 --
 
@@ -121,6 +164,7 @@ CREATE TABLE `studentinfo` (
   `id` int(11) NOT NULL,
   `StudentID` varchar(8) NOT NULL,
   `Password` varchar(8) NOT NULL,
+  `studentName` varchar(50) NOT NULL,
   `PhoneNumber` varchar(11) NOT NULL,
   `Email` char(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -129,8 +173,8 @@ CREATE TABLE `studentinfo` (
 -- 转存表中的数据 `studentinfo`
 --
 
-INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `PhoneNumber`, `Email`) VALUES
-(1, 'D190250B', 'CC07836R', '017-4139389', 'alex@gmail.com.my');
+INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `studentName`, `PhoneNumber`, `Email`) VALUES
+(1, 'D190250B', 'CC07836R', 'Alex Tan Boon Leng', '017-4139389', 'alex@gmail.com.my');
 
 -- --------------------------------------------------------
 
@@ -140,6 +184,8 @@ INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `PhoneNumber`, `Email`
 
 CREATE TABLE `teacher` (
   `teacher_id` int(5) NOT NULL,
+  `teacherID` varchar(55) NOT NULL,
+  `teacherPassword` varchar(55) NOT NULL,
   `name` varchar(25) NOT NULL,
   `facultyid` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -148,9 +194,9 @@ CREATE TABLE `teacher` (
 -- 转存表中的数据 `teacher`
 --
 
-INSERT INTO `teacher` (`teacher_id`, `name`, `facultyid`) VALUES
-(1, 'Lim Pei Geok', 16),
-(2, 'Chan Ler-Kuan', 20);
+INSERT INTO `teacher` (`teacher_id`, `teacherID`, `teacherPassword`, `name`, `facultyid`) VALUES
+(1, '', '', 'Lim Pei Geok', 16),
+(2, '', '', 'Chan Ler-Kuan', 20);
 
 -- --------------------------------------------------------
 
@@ -213,16 +259,19 @@ INSERT INTO `timeslot` (`id`, `student_id`, `student_name`, `teacher_name`, `sem
 
 CREATE TABLE `uploadref` (
   `id` int(11) NOT NULL,
-  `filetitle` varchar(11) NOT NULL,
-  `file` varchar(11) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
+  `downloads` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 转存表中的数据 `uploadref`
 --
 
-INSERT INTO `uploadref` (`id`, `filetitle`, `file`) VALUES
-(14, '11promax', '3766-11-pro');
+INSERT INTO `uploadref` (`id`, `name`, `size`, `downloads`) VALUES
+(21, 'file-upload-download.zip', 840058, 2),
+(22, 'file-upload-download.zip', 840058, 7),
+(23, 'file-upload-download.zip', 840058, 3);
 
 -- --------------------------------------------------------
 
@@ -234,7 +283,9 @@ CREATE TABLE `uploadreport` (
   `id` int(5) NOT NULL,
   `sid` varchar(8) NOT NULL,
   `filetitle` varchar(30) NOT NULL,
-  `file` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
+  `downloads` int(11) NOT NULL,
   `comment` varchar(255) NOT NULL,
   `teacherName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -243,11 +294,17 @@ CREATE TABLE `uploadreport` (
 -- 转存表中的数据 `uploadreport`
 --
 
-INSERT INTO `uploadreport` (`id`, `sid`, `filetitle`, `file`, `comment`, `teacherName`) VALUES
-(1, 'D190250B', '11promax', '8109-1.png', '', '0'),
-(3, '', '11promax', '5164-11-pro-max-2.jpg', '', '0'),
-(4, '', '11promax', '1158-Apple_announce-iphone12pro_10132020.jpg.landing-big_2x.jpg', '', 'Lim Pei Geok'),
-(5, 'D190250B', 'Ayam Goreng McD™ Regular (9pcs', '4135-618ZI2Xyw+L._AC_SL1500_.jpg', '', 'Chan Ler-Kuan');
+INSERT INTO `uploadreport` (`id`, `sid`, `filetitle`, `name`, `size`, `downloads`, `comment`, `teacherName`) VALUES
+(1, 'D190250B', '11promax', '8109-1.png', 0, 0, '', '0'),
+(3, '', '11promax', '5164-11-pro-max-2.jpg', 0, 0, '', '0'),
+(4, '', '11promax', '1158-Apple_announce-iphone12pro_10132020.jpg.landing-big_2x.jpg', 0, 0, '', 'Lim Pei Geok'),
+(5, 'D190250B', 'Ayam Goreng McD™ Regular (9pcs', '4135-618ZI2Xyw+L._AC_SL1500_.jpg', 0, 0, '', 'Chan Ler-Kuan'),
+(6, '', '', 'file-upload-download.zip', 840058, 0, '', ''),
+(7, '', '', 'file-upload-download.zip', 840058, 0, '', ''),
+(8, 'D190250B', '', 'file-upload-download.zip', 840058, 0, '', ''),
+(9, 'D190250B', '11promax', 'file-upload-download.zip', 840058, 0, '', ''),
+(10, 'D190250B', '11promax', 'file-upload-download.zip', 840058, 0, '', 'Lim Pei Geok'),
+(11, 'D190250B', '', 'Test2020C.pdf', 124066, 0, '', 'Lim Pei Geok');
 
 -- --------------------------------------------------------
 
@@ -285,6 +342,18 @@ ALTER TABLE `appointment`
 --
 ALTER TABLE `faculty`
   ADD PRIMARY KEY (`faculty_id`);
+
+--
+-- 表的索引 `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 表的索引 `formrequest`
+--
+ALTER TABLE `formrequest`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 表的索引 `room`
@@ -357,6 +426,18 @@ ALTER TABLE `faculty`
   MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- 使用表AUTO_INCREMENT `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `formrequest`
+--
+ALTER TABLE `formrequest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- 使用表AUTO_INCREMENT `room`
 --
 ALTER TABLE `room`
@@ -372,7 +453,7 @@ ALTER TABLE `sem`
 -- 使用表AUTO_INCREMENT `studentinfo`
 --
 ALTER TABLE `studentinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用表AUTO_INCREMENT `teacher`
@@ -396,13 +477,13 @@ ALTER TABLE `timeslot`
 -- 使用表AUTO_INCREMENT `uploadref`
 --
 ALTER TABLE `uploadref`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- 使用表AUTO_INCREMENT `uploadreport`
 --
 ALTER TABLE `uploadreport`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用表AUTO_INCREMENT `user`

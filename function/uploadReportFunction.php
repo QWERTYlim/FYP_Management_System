@@ -1,17 +1,17 @@
 <?php
-	include 'includes/db.connect.php'
+	include '../includes/db.connect.php'
 ?>
 <?php
 // connect to database
+session_start();
 
-
-$sql = "SELECT * FROM uploadref";
+$sql = "SELECT * FROM uploadreport";
 $result = mysqli_query($connect, $sql);
 
 $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Uploads files
-if (isset($_POST['save'])) { // if save button on the form is clicked
+if (isset($_POST['submit'])) { // if save button on the form is clicked
     // name of the uploaded file
     $filename = $_FILES['myfile']['name'];
 
@@ -24,7 +24,10 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     // the physical file on a temporary uploads directory on the server
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
-   
+    $sid =$_SESSION['StudentID'];
+    $teacher=$_POST['teacher'];
+    $title = $_POST["title"];
+
     if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
         echo "You file extension must be .zip, .pdf or .docx";
     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
@@ -32,10 +35,10 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
-            $sql = "INSERT INTO uploadref (name, size, downloads) VALUES ('$filename', $size, 0)";
+            $sql = "INSERT INTO uploadreport (  sid,filetitle,name, size, downloads,teacherName) VALUES ('$sid','$title','$filename', $size, 0,'$teacher')";
             if (mysqli_query($connect, $sql)) {
                 echo'<script> alert("File was upload")</script>';
-            echo'<script>window.location="../uploadRef.php"</script>';
+            echo'<script>window.location="../uploadReport.php"</script>';
 
             }
         } else {
@@ -48,7 +51,7 @@ if (isset($_GET['file_id'])) {
     $id = $_GET['file_id'];
 
     // fetch file to download from database
-    $sql = "SELECT * FROM uploadref WHERE id=$id";
+    $sql = "SELECT * FROM uploadreport WHERE id=$id";
     $result = mysqli_query($connect, $sql);
 
     $file = mysqli_fetch_assoc($result);
@@ -66,7 +69,7 @@ if (isset($_GET['file_id'])) {
 
         // Now update downloads count
         $newCount = $file['downloads'] + 1;
-        $updateQuery = "UPDATE uploadref SET downloads=$newCount WHERE id=$id";
+        $updateQuery = "UPDATE uploadreport SET downloads=$newCount WHERE id=$id";
         mysqli_query($connect, $updateQuery);
         exit;
     }

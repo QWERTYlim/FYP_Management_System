@@ -1,24 +1,20 @@
+<?php include 'includes/db.connect.php';?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title>File Upload</title>
-</head>
-<body>
- 
-<form method="post" enctype="multipart/form-data" action="function/uploadFunction.php">
-<?php
-session_start();
-?>
-<p1> <?php echo $_SESSION['StudentID'];?><p1>
-    <label>Title</label>
-    <input type="text" name="title">
-    <label>File Upload</label>
-    <input type="File" name="file">
-    <input type="submit" name="submit">
- 
- 
-</form>
- 
-</body>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Files Upload and Download</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form action="function/uploadFunction.php" method="post" enctype="multipart/form-data" >
+          <h3>Upload File</h3>
+          <input type="file" name="myfile"> <br>
+          <button type="submit" name="save">upload</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

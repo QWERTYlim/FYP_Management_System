@@ -1,19 +1,35 @@
+
+<?php require 'function/uploadFunction.php'?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>File Upload</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <title>Download files</title>
 </head>
 <body>
- 
-<?php
-$files=scandir("ref_upload");
+<form >
+<table>
+<thead>
+    <th>ID</th>
+    <th>Filename</th>
+    <th>size (in mb)</th>
+    <th>Downloads</th>
+    <th>Action</th>
+</thead>
+<tbody>
+  <?php foreach ($files as $file): ?>
+    <tr>
+      <td><?php echo $file['id']; ?></td>
+      <td><?php echo $file['name']; ?></td>
+      <td><?php echo floor($file['size'] / 1000) . ' KB'; ?></td>
+      <td><?php echo $file['downloads']; ?></td>
+      <td><a href="downloadRef.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+    </tr>
+  <?php endforeach;?>
 
-for($a=2;$a<count($files);$a++){
-    ?>
-    <a download="<?php echo $files[$a] ?>" href="ref_upload/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
-    <?php
-}
-?>
- 
+</tbody>
+</table>
+</form>
 </body>
 </html>

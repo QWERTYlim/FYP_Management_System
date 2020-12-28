@@ -6,10 +6,8 @@
 <link rel="stylesheet" type="text/css" href="css/blue.button.css">
 <head>
 	<title>Menu</title> 
-<?PHP
-session_start();
- echo $_SESSION['StudentID'];
-?>
+	<button class="blue"><a href="index.php" class="blue">Home</a></button>
+
 </head>
 <body>
 <h2>Welcome </h2>

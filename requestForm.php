@@ -8,17 +8,14 @@
 </head>
 <body>
 
-<form method="Post" enctype="multipart/form-data" action="function/uploadReportFunction.php">
+<form method="Post" enctype="multipart/form-data" action="function/uploadRequest.php">
 <?php
 session_start();
 ?>
 <p1> <?php echo $_SESSION['StudentID'];?><p1>
     <br>
     <br>
-    <label>Title：</label>
-    <input type="text" name="title">
-    <br>
-    <br>
+    
     <label>File Upload：</label>
     <input type="File" name="myfile" >
     <br>
@@ -29,7 +26,8 @@ session_start();
 		</select>
         <br>
         <br>
-    <textarea cols="45" rows="5" name="message" disabled></textarea>
+      
+    <textarea cols="15" rows="2" name="message" disabled></textarea>
     <br>
     <br>
     <input type="submit" name="submit"value="submit">
