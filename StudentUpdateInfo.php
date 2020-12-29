@@ -15,17 +15,8 @@
 
 
 <body>
-<?php
-$query = "SELECT * FROM studentinfo";
-$res = mysqli_query($connect,$query); 
-while($row=mysqli_fetch_array($res)){
-	
-	echo "<h3>Welcome,";echo $row["StudentID"];echo " ";  echo $_SESSION['studentName'];echo ",   Pls update your Student Info</h3>";
-	
-?>
-	<?php
-	}
-?>
+
+<h3><?php echo $_SESSION['StudentID'];?></h3>
 	
 	<form name="StudentInfo" action="function/add_StudentInfo.php" method="POST">
     

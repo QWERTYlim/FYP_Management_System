@@ -10,7 +10,7 @@
         echo "<table>";
         echo "<tr>";
             echo "<td>";echo"id";echo "</td>";
-            echo "<td>";echo"File Title";echo "</td>";
+        
             echo "<td>";echo"File";echo "</td>";
             echo "<td>";echo"Download";echo "</td>";
             echo "<td>";echo"Action";echo "</td>";
@@ -18,9 +18,9 @@
     while($row=mysqli_fetch_array($res)){
         echo "<tr>";
         echo "<td>";echo $row["id"];echo "</td>";
-            echo "<td>";echo $row["filetitle"];echo "</td>";
-            echo "<td>";echo $row["file"];echo "</td>";
-            echo "<td>";echo '<a href="function/download.php">download</a>';echo "</td>";
+            echo "<td>";echo $row["name"];echo "</td>";
+           
+            echo "<td>";echo '<a href="downloadRef.php">download</a>';echo "</td>";
             echo "<td>";
             ?>
             <input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Delete"

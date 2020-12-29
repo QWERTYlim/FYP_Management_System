@@ -1,4 +1,4 @@
-
+<?php include 'includes/db.connect.php';?>
 <?php require 'function/uploadFunction.php'?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
       <td><?php echo $file['name']; ?></td>
       <td><?php echo floor($file['size'] / 1000) . ' KB'; ?></td>
       <td><?php echo $file['downloads']; ?></td>
-      <td><a href="downloadRef.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+      <td><a href="function/downloadRef.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
     </tr>
   <?php endforeach;?>
 

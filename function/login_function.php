@@ -25,14 +25,3 @@ if(isset($_POST['StudentID'])){
 
 
 ?>
-<?php
-$query = "SELECT * FROM studentinfo";
-$res = mysqli_query($connect,$query); 
-while($row=mysqli_fetch_array($res)){
-    session_start();
-	$_SESSION["studentName"] =$row["studentName"];
-	
-?>
-	<?php
-	}
-?>
