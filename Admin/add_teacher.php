@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>File Upload</title>
+    <title>Add Teacher</title>
     <button class="blue"><a href="admin_home.php" class="blue">Home</a></button>   
 </head>
 <body>
