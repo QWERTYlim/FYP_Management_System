@@ -4,6 +4,15 @@
 <?php include '../includes/db.connect.php';?>
 
 <!DOCTYPE html>
+<?php
+
+if($_SESSION['TeacherID']=='0')
+{
+    echo "<script type='text/javascript'>alert('Please Request teacher first!');
+    window.location='requestForm.php';
+    </script>";
+}
+?>
 <html>
 <head>
     <title>File Upload</title>
@@ -38,7 +47,7 @@
     <div class="panel-body">
 
         <!-- Standar Form -->
-        <h4>Welcome <?php echo $_SESSION['StudentID'];?>,Please upload your file And Write a title</h4>
+        <h4>Welcome <?php echo $_SESSION['TeacherID'];?>,Please upload your file And Write a title</h4>
         <h4>Please write your title: </h4>
         <input type="text" name="title">
         <h4>Select files from your computer</h4>

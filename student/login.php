@@ -15,6 +15,7 @@ if(isset($_SESSION['StudentID']))
 ?>
 
 <html>
+
 <head>
 	<title>Student Login</title>
 	<link rel="stylesheet" type="text/css" href="../css/login.css">

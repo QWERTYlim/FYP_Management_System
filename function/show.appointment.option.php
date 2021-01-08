@@ -2,7 +2,7 @@
 	include '../includes/db.connect.php'
 ?>
 <?php
-	$query = "SELECT * FROM faculty WHERE faculty_id='". $_SESSION['FacultyID']."'" ;
+	$query = "SELECT * FROM faculty WHERE faculty_id='". $_SESSION['DepartmentID']."'" ;
 	$result1 = mysqli_query($connect, $query);
 	$options = "";
 	while($row2 = mysqli_fetch_array($result1))

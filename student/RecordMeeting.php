@@ -5,6 +5,16 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!DOCTYPE html>
+
+<?php
+if($_SESSION['TeacherID']=='0')
+{
+    echo "<script type='text/javascript'>alert('Please Request teacher first!');
+    window.location='requestForm.php';
+    </script>";
+}
+?>
+
 <html>
 <head>
     <title>File Upload</title>

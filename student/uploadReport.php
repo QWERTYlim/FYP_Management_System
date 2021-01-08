@@ -1,5 +1,15 @@
 <?php include '../includes/db.connect.php'?>
 <!DOCTYPE html>
+
+<?php
+if($_SESSION['TeacherID']=='0')
+{
+    echo "<script type='text/javascript'>alert('Please Request teacher first!');
+    window.location='requestForm.php';
+    </script>";
+}
+?>
+
 <html>
 <head>
     <title>File Upload</title>

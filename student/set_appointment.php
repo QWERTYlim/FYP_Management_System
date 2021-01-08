@@ -1,6 +1,15 @@
 <?php include '../function/show.appointment.option.php'?>
 <!DOCTYPE html>
 
+<?php
+if($_SESSION['TeacherID']=='0')
+{
+    echo "<script type='text/javascript'>alert('Please Request teacher first!');
+    window.location='requestForm.php';
+    </script>";
+}
+?>
+
 <html>
 
 <head>
