@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2020-12-30 08:13:41
+-- 生成日期： 2021-01-08 05:53:12
 -- 服务器版本： 10.4.17-MariaDB
 -- PHP 版本： 8.0.0
 
@@ -38,17 +38,6 @@ CREATE TABLE `appointment` (
   `student_name` varchar(30) NOT NULL,
   `approval` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 转存表中的数据 `appointment`
---
-
-INSERT INTO `appointment` (`id`, `faculty`, `date`, `time`, `room`, `teacher`, `student_id`, `student_name`, `approval`) VALUES
-(31, 'Information Technology', '2020-11-26', '9.00am', '115a', 'Chan Ler-Kuan', '', '', 'Decline'),
-(32, 'Engineering', '0000-00-00', '8.00am', '115a', 'Lim Pei Geok', '', '', 'Decline'),
-(33, 'Engineering', '0000-00-00', '8.00am', '115a', 'Lim Pei Geok', '', '', NULL),
-(34, 'Engineering', '0000-00-00', '8.00am', '115a', 'Lim Pei Geok', 'D190250B', 'Alex Tan Boon L', NULL),
-(35, 'Engineering', '0000-00-00', '8.00am', '115a', 'Lim Pei Geok', 'D190250B', 'Alex Tan Boon Leng', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,8 +84,8 @@ CREATE TABLE `formrequest` (
 --
 
 INSERT INTO `formrequest` (`id`, `sid`, `file`, `size`, `request`, `teacher`, `comment`) VALUES
-(4, 'D190250B', 'jar_files.zip', 124066, 'Decline', 'Lim Pei Geok', 'try'),
-(5, 'D190250B', 'jar_files.rer', 547007, 'Decline', 'Lim Pei Geok', 'today'),
+(4, 'D190250B', 'jar_files.zip', 124066, 'Approve', 'Lim Pei Geok', 'try'),
+(5, 'D190250B', 'jar_files.rer', 547007, 'Approve', 'Lim Pei Geok', 'today'),
 (6, 'D190250B', 'jar_files.zip', 547007, 'Approve', 'Lim Pei Geok', 'done'),
 (7, 'D180293B', 'jar_files.zip', 121859, 'Approve', 'MuMu', 'all'),
 (8, 'D180293B', 'jar_files.zip', 121859, 'Approve', 'MuMu', 'want to be ur student');
@@ -155,6 +144,27 @@ INSERT INTO `room` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `studentdetail`
+--
+
+CREATE TABLE `studentdetail` (
+  `ID` int(11) NOT NULL,
+  `TeacherID` int(11) NOT NULL DEFAULT 0,
+  `DepartmentID` int(11) NOT NULL,
+  `StudentID` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `studentdetail`
+--
+
+INSERT INTO `studentdetail` (`ID`, `TeacherID`, `DepartmentID`, `StudentID`) VALUES
+(1, 0, 16, 'D180293B'),
+(2, 0, 14, 'D190250B');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `studentinfo`
 --
 
@@ -164,18 +174,16 @@ CREATE TABLE `studentinfo` (
   `Password` varchar(8) NOT NULL,
   `studentName` varchar(50) NOT NULL,
   `PhoneNumber` varchar(11) NOT NULL,
-  `Email` char(55) NOT NULL,
-  `FacultyID` int(11) NOT NULL,
-  `TeacherID` varchar(255) NOT NULL
+  `Email` char(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 转存表中的数据 `studentinfo`
 --
 
-INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `studentName`, `PhoneNumber`, `Email`, `FacultyID`, `TeacherID`) VALUES
-(1, 'D190250B', 'CC07836R', 'Alex Tan Boon Leng', '017-4139389', 'alex@gmail.com.my', 14, '123'),
-(2, 'D180293B', 'DV48845T', 'Lim Yu Jie', '014-3883654', 'ashjfd@hh.com', 16, '456');
+INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `studentName`, `PhoneNumber`, `Email`) VALUES
+(1, 'D190250B', 'CC07836R', 'Alex Tan Boon Leng', '017-4139389', 'alex@gmail.com.my'),
+(2, 'D180293B', 'DV48845T', 'Lim Yu Jie', '014-3883654', 'ashjfd@hh.com');
 
 -- --------------------------------------------------------
 
@@ -316,6 +324,12 @@ ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 表的索引 `studentdetail`
+--
+ALTER TABLE `studentdetail`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- 表的索引 `studentinfo`
 --
 ALTER TABLE `studentinfo`
@@ -353,7 +367,7 @@ ALTER TABLE `uploadreport`
 -- 使用表AUTO_INCREMENT `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- 使用表AUTO_INCREMENT `faculty`
@@ -378,6 +392,12 @@ ALTER TABLE `recordmeeting`
 --
 ALTER TABLE `room`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- 使用表AUTO_INCREMENT `studentdetail`
+--
+ALTER TABLE `studentdetail`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用表AUTO_INCREMENT `studentinfo`
