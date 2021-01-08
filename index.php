@@ -22,7 +22,7 @@
 <button class='blue'><a href='teacher/login.php' class="blue">Teacher Login</a></button>
 <br>
 <br>
-<button class='blue'><a href='set_weekly_timeslot.php' class="blue">Admin Login</a></button>
+<button class='blue'><a href='admin/admin_login.php' class="blue">Admin Login</a></button>
 <br>
 <br>
 

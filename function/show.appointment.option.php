@@ -2,7 +2,7 @@
 	include '../includes/db.connect.php'
 ?>
 <?php
-	$query = "SELECT * FROM faculty WHERE faculty_id='". $_SESSION['DepartmentID']."'" ;
+	$query = "SELECT * FROM department WHERE department_name='". $_SESSION['DepartmentName']."'" ;
 	$result1 = mysqli_query($connect, $query);
 	$options = "";
 	while($row2 = mysqli_fetch_array($result1))
@@ -33,5 +33,5 @@
 	{
     	$options4 = $options4."<option>$row2[1]</option>";
 	}
-
+	
 ?>

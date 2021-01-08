@@ -3,7 +3,7 @@
 ?>
 <?php
  if(isset($_POST['StudentInfo_btn'])){
-	    session_start();
+	   
         $StudentID=$_SESSION['StudentID'];
         $PhoneNumber=$_POST['PhoneNumber'];
         $Email=$_POST['Email'];

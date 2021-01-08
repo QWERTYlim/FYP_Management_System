@@ -11,17 +11,17 @@ if(isset($_POST['TeacherID'])){
     $result=mysqli_query($connect,"SELECT*FROM teacher where TeacherID='".$TeacherID."'and Password='".$Password."' ");
 	if(mysqli_num_rows($result)>0){
         $name1=mysqli_query($connect,"SELECT Name FROM teacher WHERE TeacherID='".$TeacherID."'");
-        $FID=mysqli_query($connect,"SELECT FacultyID FROM teacher WHERE TeacherID='".$TeacherID."'");
+        $DID=mysqli_query($connect,"SELECT DepartmentName FROM teacher WHERE TeacherID='".$TeacherID."'");
         
 
         $my_information=mysqli_fetch_assoc($name1);
-        $my_name=$my_information['Name'];
-        $my_information2=mysqli_fetch_assoc($FID);
-        $my_facultyid=$my_information2['FacultyID'];
+        $my_name1=$my_information['Name'];
+        $my_information2=mysqli_fetch_assoc($DID);
+        $my_facultyid=$my_information2['DepartmentName'];
         
         $_SESSION['TeacherID']=$TeacherID;
-        $_SESSION['Name']=$my_name;
-        $_SESSION['FacultyID']=$my_facultyid;
+        $_SESSION['TeacherName']=$my_name1;
+        $_SESSION['DepartmentName']=$my_facultyid;
         
         
         header("location:../teacher/teacherHome.php?user=$TeacherID");

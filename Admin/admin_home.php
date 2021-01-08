@@ -17,15 +17,15 @@
 
 <body>
 		<div id="jquery-accordion-menu" class="jquery-accordion-menu">
-			<div class="jquery-accordion-menu-header">Welcome back, <?php echo $_SESSION['TeacherName'];?> </div>
+			<div class="jquery-accordion-menu-header">Welcome back, <?php echo $_SESSION['adminID'];?> </div>
 			<ul>
 				<li class="active"><a href="#"><i class="fa fa-home"></i>Home </a></li>
 
-				<li><a href="../function/teacher_logout_function.php" class="blue">Logout</a></li>
-				<li><a href="show_request.php" class="blue">All Request</a></li>
-				<li><a href="show_Record.php" class="blue">Student Record</a></li>
-				<li><a href="show_Report.php" class="blue">Student Report</a></li>
-
+				
+				<li><a href="add_room.php" class="blue">Add Room</a></li>
+				<li><a href="add_student.php" class="blue">Add Student</a></li>
+				<li><a href="add_teacher.php" class="blue">Add Teacher</a></li>
+                <li><a href="../function/admin_logout_function.php" class="blue">Logout</a></li>
 			</ul>
 				<div class="jquery-accordion-menu-footer"> <p>CopyRight &#169; 2020 by Junwendd  </p></div>
 			</div>
