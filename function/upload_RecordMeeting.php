@@ -5,18 +5,18 @@
 // connect to database
 
 
-$sql = "SELECT * FROM uploadref";
+$sql = "SELECT * FROM recordmeeting";
 $result = mysqli_query($connect, $sql);
 
 $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Uploads files
-if (isset($_POST['save'])) { // if save button on the form is clicked
+if (isset($_POST['submit'])) { // if save button on the form is clicked
     // name of the uploaded file
     $filename = $_FILES['myfile']['name'];
 
     // destination of the file on the server
-    $destination = '../ref_upload/' . $filename;
+    $destination = '../record_upload/' . $filename;
 
     // get the file extension
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -24,16 +24,21 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     // the physical file on a temporary uploads directory on the server
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
-   
+    $sid =$_SESSION['StudentID'];
+    $message=$_POST['message'];
+    $message1=$_POST['message1'];
+    $message2=$_POST['message2'];
+    $message3=$_POST['message3'];
+
+$teacher=$_SESSION['TeacherID'];
     if (!in_array($extension, ['zip', 'pdf', 'docx','rar'])) {
-        echo "You file extension must be .zip, .pdf ,.rar or .docx";
+        echo "You file extension must be .zip,.rar, .pdf or .docx";
     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
-
-            $sql = "INSERT INTO uploadref (name, size, downloads,SID) VALUES ('$filename', $size, 0,'". $_SESSION['StudentID']."')";
+            $sql = "INSERT INTO recordmeeting (sid,file,size,issues,feedback,actionfeedback,matters,teacherName) VALUES ('$sid','$filename', $size,'$message','$message1','$message2','$message3','$teacher')";
             if (mysqli_query($connect, $sql)) {
                 echo'<script> alert("File was upload")</script>';
             echo'<script>window.location="../student/StudentHome.php"</script>';
@@ -49,11 +54,11 @@ if (isset($_GET['file_id'])) {
     $id = $_GET['file_id'];
 
     // fetch file to download from database
-    $sql = "SELECT * FROM uploadref WHERE id=$id";
+    $sql = "SELECT * FROM recordmeeting WHERE id=$id";
     $result = mysqli_query($connect, $sql);
 
     $file = mysqli_fetch_assoc($result);
-    $filepath = 'uploads/' . $file['name'];
+    $filepath = 'record_upload/' . $file['name'];
 
     if (file_exists($filepath)) {
         header('Content-Description: File Transfer');
@@ -62,14 +67,11 @@ if (isset($_GET['file_id'])) {
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: ' . filesize('uploads/' . $file['name']));
-        readfile('uploads/' . $file['name']);
+        header('Content-Length: ' . filesize('record_upload/' . $file['name']));
+        readfile('record_upload/' . $file['name']);
 
         // Now update downloads count
-        $newCount = $file['downloads'] + 1;
-        $updateQuery = "UPDATE uploadref SET downloads=$newCount WHERE id=$id";
-        mysqli_query($connect, $updateQuery);
-        exit;
+      
     }
 
 }

@@ -3,28 +3,29 @@
 <link rel="stylesheet" type="text/css" href="css/blue.button.css">
 <head>
 	<title>Menu</title> 
+
+	<link rel="stylesheet" type="text/css" href="css/blue.button.css">
+	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/text_field.css">
+
+	<style>
+	html,body{
+		background-image: url('http://getwallpapers.com/wallpaper/full/2/d/8/343573.jpg');
+	}
+	</style>
 </head>
 <body>
 
-<button class='blue'><a href='set_appointment.php' class="blue">Make Appointment</a></button>
+<button class='blue'><a href='student/login.php' class="blue">Student Login</a></button>
 <br>
 <br>
-<button class='blue'><a href='approve.php' class="blue">Approve</a></button>
+<button class='blue'><a href='teacher/login.php' class="blue">Teacher Login</a></button>
 <br>
 <br>
-<button class='blue'><a href='set_weekly_timeslot.php' class="blue">Weekly Timeslot</a></button>
-<br>
-<br>
-<button class='blue'><a href='timeslot.php' class="blue">Delete Weekly Timeslot</a></button>
+<button class='blue'><a href='set_weekly_timeslot.php' class="blue">Admin Login</a></button>
 <br>
 <br>
 
-<button class='blue'><a href='login.php' class="blue">Login</a></button>
-<br>
-<br>
-<button class='blue'><a href='make_administrator.php' class="blue">5B)</a></button>
-<br>
-<br>
 
 
 

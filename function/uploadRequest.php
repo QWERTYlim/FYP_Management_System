@@ -1,9 +1,9 @@
-<?php
+    <?php
 	include '../includes/db.connect.php'
 ?>
 <?php
 // connect to database
-session_start();
+
 
 $sql = "SELECT * FROM formrequest";
 $result = mysqli_query($connect, $sql);
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
     $filename = $_FILES['myfile']['name'];
 
     // destination of the file on the server
-    $destination = '../uploads/' . $filename;
+    $destination = '../request_upload/' . $filename;
 
     // get the file extension
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -26,19 +26,20 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
     $size = $_FILES['myfile']['size'];
     $sid =$_SESSION['StudentID'];
     $teacher=$_POST['teacher'];
+    $message=$_POST['message'];
     
 
-    if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
-        echo "You file extension must be .zip, .pdf or .docx";
+    if (!in_array($extension, ['zip', 'pdf', 'docx','rar'])) {
+        echo "You file extension must be .zip,.rar, .pdf or .docx";
     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
-            $sql = "INSERT INTO formrequest (  sid,file, size,teacher) VALUES ('$sid','$filename', $size,'$teacher')";
+            $sql = "INSERT INTO formrequest (sid,file, size,teacher,comment) VALUES ('$sid','$filename', $size,'$teacher','$message')";
             if (mysqli_query($connect, $sql)) {
                 echo'<script> alert("File was upload")</script>';
-            echo'<script>window.location="../requestForm.php"</script>';
+            echo'<script>window.location="../student/StudentHome.php"</script>';
 
             }
         } else {
@@ -55,7 +56,7 @@ if (isset($_GET['file_id'])) {
     $result = mysqli_query($connect, $sql);
 
     $file = mysqli_fetch_assoc($result);
-    $filepath = 'uploads/' . $file['name'];
+    $filepath = 'request_upload/' . $file['name'];
 
     if (file_exists($filepath)) {
         header('Content-Description: File Transfer');
@@ -64,8 +65,8 @@ if (isset($_GET['file_id'])) {
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: ' . filesize('uploads/' . $file['name']));
-        readfile('uploads/' . $file['name']);
+        header('Content-Length: ' . filesize('request_upload/' . $file['name']));
+        readfile('request_upload/' . $file['name']);
 
         // Now update downloads count
       

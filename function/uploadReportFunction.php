@@ -3,7 +3,7 @@
 ?>
 <?php
 // connect to database
-session_start();
+
 
 $sql = "SELECT * FROM uploadreport";
 $result = mysqli_query($connect, $sql);
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
     $filename = $_FILES['myfile']['name'];
 
     // destination of the file on the server
-    $destination = '../uploads/' . $filename;
+    $destination = '../report_upload/' . $filename;
 
     // get the file extension
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
     $sid =$_SESSION['StudentID'];
-    $teacher=$_POST['teacher'];
+    $teacher=$_SESSION['TeacherID'];
     $title = $_POST["title"];
 
     if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
             $sql = "INSERT INTO uploadreport (  sid,filetitle,name, size, downloads,teacherName) VALUES ('$sid','$title','$filename', $size, 0,'$teacher')";
             if (mysqli_query($connect, $sql)) {
                 echo'<script> alert("File was upload")</script>';
-            echo'<script>window.location="../uploadReport.php"</script>';
+            echo'<script>window.location="../student/uploadReport.php"</script>';
 
             }
         } else {
@@ -55,7 +55,7 @@ if (isset($_GET['file_id'])) {
     $result = mysqli_query($connect, $sql);
 
     $file = mysqli_fetch_assoc($result);
-    $filepath = 'uploads/' . $file['name'];
+    $filepath = '../report_upload/' . $file['name'];
 
     if (file_exists($filepath)) {
         header('Content-Description: File Transfer');
@@ -64,8 +64,8 @@ if (isset($_GET['file_id'])) {
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: ' . filesize('uploads/' . $file['name']));
-        readfile('uploads/' . $file['name']);
+        header('Content-Length: ' . filesize('../report_upload/' . $file['name']));
+        readfile('../report_upload/' . $file['name']);
 
         // Now update downloads count
         $newCount = $file['downloads'] + 1;

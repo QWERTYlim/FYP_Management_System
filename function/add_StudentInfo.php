@@ -13,7 +13,7 @@
     
         if($result1){
             echo'<script> alert("Data was Update")</script>';
-            echo'<script>window.location="../StudentUpdateInfo.php"</script>';
+            echo'<script>window.location="../student/studenthome.php"</script>';
         }else{
             echo'<script type="text/javascript"> alert("Data not Update")</script>';
         }
