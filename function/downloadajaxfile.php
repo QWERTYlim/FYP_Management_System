@@ -1,6 +1,5 @@
 <?php
 include '../includes/db.connect.php';
-echo"asdasdasdasd";
 if (isset($_GET['file_name'])) {
 	$name = $_GET['file_name'];
 	

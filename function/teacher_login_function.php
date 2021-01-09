@@ -3,7 +3,6 @@ include '../includes/db.connect.php'
 ?>
 <?php
 if(isset($_POST['TeacherID'])){
-    session_start();
     $TeacherID=$_POST['TeacherID'];
     $Password=$_POST['Password'];
     
