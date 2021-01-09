@@ -23,7 +23,7 @@
 
 
 <?php
-$query = "SELECT * FROM teacher WHERE departmentid='". $_SESSION['DepartmentID']."'" ;
+$query = "SELECT * FROM teacher WHERE DepartmentName='". $_SESSION['DepartmentName']."'" ;
 $result1 = mysqli_query($connect, $query);
 $options3 = "";
 while($row2 = mysqli_fetch_array($result1))
@@ -47,14 +47,15 @@ while($row2 = mysqli_fetch_array($result1))
         <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
         <div class="form-inline">
             <div class="form-group">
-            <input type="file"  name="file" id="file" multiple>
+            <input type="file"  name="myfile" id="myfile" multiple>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary" name="submit"value="submit">Upload</button>
-        </div>
-        <h4 for="teacher">Teacher :</h4>
+            <h4 for="teacher">Teacher :</h4>
 		<select id="teacher" name="teacher" class="form-control" style="width: 150px; height:30px;">
 			<?php echo $options3;?>
 		</select>
+            <button type="submit" class="btn btn-sm btn-primary" name="submit"value="submit">Upload</button>
+        </div>
+       
         <br>
         <br>
         <textarea cols="45" rows="5" name="message" ></textarea>

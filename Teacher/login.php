@@ -14,7 +14,7 @@ if(isset($_SESSION['StudentID']))
 
 <html>
 <head>
-	<title>Student Login</title>
+	<title>Teacher Login</title>
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 
 	<link rel="stylesheet" type="text/css" href="../css/blue.button.css">
