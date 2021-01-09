@@ -34,9 +34,11 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
         echo "File too large!";
     } else {
         // move the uploaded (temporary) file to the specified destination
+        
         if (move_uploaded_file($file, $destination)) {
-            $sql = "INSERT INTO uploadreport (  sid,filetitle,name, size, downloads,teacherName) VALUES ('$sid','$title','$filename', $size, 0,'$teacher')";
-            if (mysqli_query($connect, $sql)) {
+
+            $sql = "INSERT INTO uploadreport(sid,filetitle,name,size,teacherName) VALUES ('$sid','$title','$filename','$size','$teacher')";
+            if (mysqli_query($connect,$sql)) {
                 echo'<script> alert("File was upload")</script>';
             echo'<script>window.location="../student/uploadReport.php"</script>';
 
@@ -46,32 +48,4 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
         }
     }
 }
-// Downloads files
-if (isset($_GET['file_id'])) {
-    $id = $_GET['file_id'];
 
-    // fetch file to download from database
-    $sql = "SELECT * FROM uploadreport WHERE id=$id";
-    $result = mysqli_query($connect, $sql);
-
-    $file = mysqli_fetch_assoc($result);
-    $filepath = '../report_upload/' . $file['name'];
-
-    if (file_exists($filepath)) {
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . basename($filepath));
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize('../report_upload/' . $file['name']));
-        readfile('../report_upload/' . $file['name']);
-
-        // Now update downloads count
-        $newCount = $file['downloads'] + 1;
-        $updateQuery = "UPDATE uploadreport SET downloads=$newCount WHERE id=$id";
-        mysqli_query($connect, $updateQuery);
-        exit;
-    }
-
-}

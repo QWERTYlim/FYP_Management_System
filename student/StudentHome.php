@@ -24,7 +24,7 @@
 				<li><a href="requestForm.php" class="blue">Request teacher</a></li>
 				<li><a href="set_appointment.php" class="blue">Make appointment</a></li>
 				<li><a href="uploadRef.php" class="blue">Upload Reference</a></li>
-				<li><a href="showUpload.php" class="blue">Reference File</a></li>
+				<li><a href="showReference.php" class="blue">Reference File</a></li>
 				<li><a href="uploadReport.php" class="blue">Upload Report</a></li>
 				<li><a href="RecordMeeting.php" class="blue">Record Meeting</a></li>
 				<li><a href="../function/student_logout_function.php" class="blue">Logout</a></li>

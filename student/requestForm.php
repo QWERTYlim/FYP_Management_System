@@ -23,7 +23,7 @@
 
 
 <?php
-$query = "SELECT * FROM teacher WHERE departmentid='". $_SESSION['DepartmentID']."'" ;
+$query = "SELECT * FROM teacher WHERE DepartmentName='". $_SESSION['DepartmentName']."'" ;
 $result1 = mysqli_query($connect, $query);
 $options3 = "";
 while($row2 = mysqli_fetch_array($result1))
