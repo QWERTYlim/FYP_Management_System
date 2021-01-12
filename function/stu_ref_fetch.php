@@ -19,6 +19,7 @@ if(mysqli_num_rows($result) > 0)
 	$output .= '<div class="table-responsive">
 					<table class="table table bordered">
 						<tr>
+						<th>Title</th>
 							<th>Name</th>
 							<th>Download</th>
 							
@@ -27,6 +28,7 @@ if(mysqli_num_rows($result) > 0)
 	{
 		$output .= '
 			<tr>
+			<td>'.$row["title"].'</td>
                 <td>'.$row["name"].'</td>
                  <td><a href="../function/stu_ref_fetch.php?file_name='.$row["name"].'">Download</a></td>
 				 
