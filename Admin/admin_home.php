@@ -26,6 +26,7 @@
 				<li><a href="add_student.php" class="blue">Add Student</a></li>
 				<li><a href="add_teacher.php" class="blue">Add Teacher</a></li>
 				<li><a href="all_student.php" class="blue">All Student</a></li>
+				<li><a href="all_teachers.php" class="blue">All Student</a></li>
 				<li><a href="all_teacher.php" class="blue">All Teacher</a></li>
 				<li><a href="delReference.php" class="blue">Del Reference</a></li>
 

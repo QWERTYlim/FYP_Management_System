@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
     $message1=$_POST['message1'];
     $message2=$_POST['message2'];
     $message3=$_POST['message3'];
-
+    $dates=$_POST['dates'];
 $teacher=$_SESSION['TeacherID'];
     if (!in_array($extension, ['zip', 'pdf', 'docx','rar'])) {
         echo "You file extension must be .zip,.rar, .pdf or .docx";
@@ -38,7 +38,7 @@ $teacher=$_SESSION['TeacherID'];
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
-            $sql = "INSERT INTO recordmeeting (sid,file,size,issues,feedback,actionfeedback,matters,teacherName) VALUES ('$sid','$filename', $size,'$message','$message1','$message2','$message3','$teacher')";
+            $sql = "INSERT INTO recordmeeting (sid,file,size,issues,feedback,actionfeedback,matters,teacherName,date) VALUES ('$sid','$filename', $size,'$message','$message1','$message2','$message3','$teacher','$dates')";
             if (mysqli_query($connect, $sql)) {
                 echo'<script> alert("File was upload")</script>';
             echo'<script>window.location="../student/StudentHome.php"</script>';

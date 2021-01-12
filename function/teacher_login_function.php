@@ -19,7 +19,7 @@ if(isset($_POST['TeacherID'])){
         $my_facultyid=$my_information2['DepartmentName'];
         
         $_SESSION['TeacherID']=$TeacherID;
-        $_SESSION['TeacherName']=$my_name1;
+        $_SESSION['Name']=$my_name1;
         $_SESSION['DepartmentName']=$my_facultyid;
         
         

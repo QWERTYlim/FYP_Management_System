@@ -1,48 +1,53 @@
-<?php
-    include '../includes/db.connect.php';
-    if($_SESSION['adminID']=="")
-    {
-        echo "<script type='text/javascript'>alert('Please login first!');
-        window.location='admin_login.php';
-        </script>";
-    }
+ <?php include '../includes/db.connect.php';
+$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+$query = "SELECT * FROM teacher";
+$res = mysqli_query($connect,$query); 
 ?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Teacher List</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../js/all_teacher.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-	</head>
-	<body>
-		<div class="container">
-			<br />
-			<br />
-			<br />
-			<h2 align="center">Teacher list</h2><br />
-			<div class="form-group">
-				<div class="input-group">
-					<span class="input-group-addon">Search</span>
-					<input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
-				</div>
-			</div>
-			<br />
-			<div id="result"></div>
-		</div>
-		<div style="clear:both"></div>
-		<br />
-		
-		<br />
-		<br />
-		<br />
-	</body>
-</html>
 
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Approve</title>
+	 <link rel="stylesheet" type="text/css" href="css/blue.button.css">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
+     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
+	<button class="blue"><a href="index.php" class="blue">Home</a></button>
+ </head>
+ <body>
+ <div class="table-responsive">
+  <table id="data" class="table table-striped table-bordered">
+  	<thead>
+  		<tr>
+  			<td>Name</td>
+  			<td>TeacherID</td>
+  			<td>DepartmentName</td>
+  		</tr>
+  	</thead>
 
+  	<?php
+  	while ($row=mysqli_fetch_array($res)) {
+  		echo '
+  		<tr>
+  			<td>'.$row["Name"]. '</td>
+  			<td>'.$row["TeacherID"]. '</td>
+  			<td>'.$row["DepartmentName"]. '</td>
+  		</tr>
+  		';
+  	}
+  	?>
+  </table>
+ </div>
+ </body>
+ <div id="disp_data"></div>
+<script>
+	$(document).ready(function(){
+		$('#data').DataTable();
+	});
 
+</script>
 
-
-
+ </html>

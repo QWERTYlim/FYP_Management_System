@@ -8,32 +8,32 @@ $status=$_GET["status"];
 if($status=="disp")
 {
 $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
-$query = "SELECT * FROM  formrequest WHERE teacher='". $_SESSION['TeacherName']."'" ;
+$query = "SELECT * FROM  formrequest WHERE teacher='". $_SESSION['Teachername']."'" ;
 $res = mysqli_query($connect,$query); 
 echo "<table>";
 
 echo "<thead>";
-	echo "<tr>";
-		echo "<th>";echo"SID";echo "</th>";
-		echo "<th>";echo"File";echo "</th>";
-		echo "<th>";echo"Download";echo "</th>";
-		echo "<th>";echo"Comment";echo "</th>";
-		echo "<th>";echo"Status";echo "</th>";
-		echo "<th>";echo"Approve/Decline";echo "</th>";
+	echo "<tr style='border:2px solid black'>" ;
+		echo "<th style='border:2px solid black'>";echo"SID";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"File";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Download";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Comment";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Status";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Approve/Decline";echo "</th>";
 	echo"</tr>";
 echo "</thead>";
 
 while($row=mysqli_fetch_array($res)){
-	echo "<tr>";
-	echo "<td>";echo $row["sid"];echo "</td>";
-	echo "<td>";echo $row["file"];echo "</td>";
-	echo "<td>";?><a href="../function/ajax_student_request.php?file_name=<?php echo $row["file"]; ?>">Download</a><?php echo "</td>";
-	echo "<td>";echo $row["comment"];echo "</td>";
-	echo "<td>";echo $row["request"];echo "</td>";
-	echo "<td>";?>
+	echo "<tr style='border:2px solid black'>";
+	echo "<td style='border:2px solid black'>";echo $row["sid"];echo '&nbsp'; "</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["file"];echo '&nbsp'; "</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';?><a href="../function/ajax_student_request.php?file_name=<?php echo $row["file"]; ?>">Download</a><?php echo '&nbsp';"</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["comment"];echo'&nbsp'; "</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["request"];echo '&nbsp';"</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';?>
 	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Approve" onclick="approve(this.id)">
 	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Decline" onclick="if (!confirm('Are you sure?')) { return false };decline(this.id)">
-	<?php echo "</td";
+	<?php echo '&nbsp';"</td";
 	echo"</tr>";
  }
  echo "</table>";

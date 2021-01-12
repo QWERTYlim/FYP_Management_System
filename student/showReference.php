@@ -1,186 +1,126 @@
-<?php include '../includes/db.connect.php'?>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Webslesson Demo - Ajax Live Data Search using Jquery PHP MySql</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../js/show_reference.js"></script>
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<style>
-  body {
-   
-   background-image: url(../image/cover.jpeg);
-   background-size:cover;
-   background-repeat: no-repeat;
-   height:100%;
-   font-family: 'Numans', sans-serif;
- }
- 
- .sidenav {
-   height:auto;
-   width: auto;
-   position: fixed;
-   z-index: 1;
-   top: 0;
-   left: 0;
-  
-   overflow-x: hidden;
-   transition: 0.5s;
-   padding-top: 60px;
- }
- 
- .sidenav a {
-   padding: 8px 8px 8px 32px;
-   text-decoration: none;
-   font-size: 20px;
-   color:black;
-   display: block;
-   transition: 0.3s;
+<?php include '../function/show.appointment.option.php'?>
+<!DOCTYPE html>
+<html lang="en">
 
- }
- 
- .sidenav a:hover {
-   background-color: white;
-   color:black;
- }
- 
- .sidenav .closebtn {
-  
-   font-size:30px;
-   cursor:pointer;
-   margin-bottom:25px;
-   position: absolute;
-   top: 13;
-   right: 206;
-   font-size: 30px;
-   margin-left: 50px;
-   
- }
- 
- @media screen and (max-height: 450px) {
-   .sidenav {padding-top: 15px;}
-   .sidenav a {font-size: 18px;}
- }
- .div1{
-    width:75%; height:auto;background-color:rgba(255,255,255,0.8);border-style:solid;margin-left:10%;margin-top:5%;font-size:15px;
- }
- .div2{
-	
-	border-style:solid;
-	width:100%;
-}
-.div3{
-    margin:10px;
-    font-size:15px;
-}
-table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
+<head>
 
-table td,
-table th {
-    border: 1px solid #cad9ea;
-    color: #666;
-    height: 30px;
-}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-table thead th {
-    background-color: #CCE8EB;
-    width: 100px;
-}
+	<title>Past Year Report</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/show_reference.js"></script>
+	<!-- Bootstrap core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-table tr:nth-child(odd) {
-    background: #fff;
-}
+	<!-- Custom styles for this template -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
 
-table tr:nth-child(even) {
-    <background-color:white;
-}
-::placeholder{
-	color:black;
-}
-  </style>
-	</head>
-	<body>
-	<div style="background-color:rgba(100, 149, 237,0.1)">
-<nav class="navbar navbar-expand-sm bg- navbar-dark ">
-  <ul class="navbar-nav">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-<div id="mySidenav" class="sidenav" style="background-color:rgba(100, 149, 237,0.5)">
+</head>
 
-	<h5 class="closebtn" onclick="closeNav()">&#9776; </h5>
-<a style="border-bottom-style:solid;">
-  <a href="StudentHome.php"style="border-bottom-style:solid; ">Update&nbspStudent&nbspInfo</a>
-  <a href="requestForm.php"style="border-bottom-style:solid;">Request&nbspTeacher</a>
-  <a href="set_appointment.php"style="border-bottom-style:solid;">Make&nbspAppointment</a>
-  <a href="uploadRef.php"style="border-bottom-style:solid;">Upload&nbspReference&nbspFile</a>
-  <a href="showReference.php"style="border-bottom-style:solid;">show&nbspUpload</a>
-  <a href="uploadReport.php"style="border-bottom-style:solid;">Upload&nbspReport</a>
-  <a href="RecordMeeting.php"style="border-bottom-style:solid;">Recording&nbspMeeting</a>
-  
-</div>
-    <li class="nav-item active">
-      <a class="nav-link" href=""style="color:black;font-size:20px">Welcome , <?php echo $_SESSION['studentName'];?>!! </a>
-    </li>
-    
-	<li class="nav-item dropdown bg-" Style="font-size:20px;margin-left:950px;">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Style="color:black;"><?php echo $_SESSION['StudentID'];?></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown"  Style="background:rgba(25,184,254,0.2);">
-                <a class="dropdown-item" href="StudentHome.php" Style="color:black"><?php echo $_SESSION['studentName'];?></a>
-                <a class="dropdown-item" href="../function/student_logout_function.php" Style="color:black">Logout</a>
-               
-                
-                <div class="dropdown-divider">
-               
-            </li>
-  </ul>
-  
-</nav>
-		<div class="div1">
-		<div class="container">
-		
-			<strong  style="border-bottom-style:solid;">Reference File</strong >
-			<p></p>
-			<div class="div2">
-				<div class="div3">
-			<div class="form-group">
-			<p></p>
-				<div class="input-group"style="">
-				
-					<input class="input-group-addon"style="background-color:rgba(100, 149, 237,1);text-align:center"placeholder="Search"disabled></input>
-					<input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+<body>
+	<style>
+		::placeholder {
+			color: black;
+		}
+	</style>
+	<div class="d-flex" id="wrapper">
+
+		<!-- Sidebar -->
+		<div class="bg-light border-right" id="sidebar-wrapper">
+			<div class="sidebar-heading">Final Year Project</div>
+			<div class="list-group list-group-flush">
+				<a href="StudentHome.php"
+					class="list-group-item list-group-item-action bg-light">Update&nbspStudent&nbspInfo</a>
+				<a href="requestForm.php"
+					class="list-group-item list-group-item-action bg-light">Request&nbspTeacher</a>
+				<a href="set_appointment.php"
+					class="list-group-item list-group-item-action bg-light">Make&nbspAppointment</a>
+				<a href="showReference.php" class="list-group-item list-group-item-action bg-light">Past Year Report</a>
+				<a href="uploadReport.php" class="list-group-item list-group-item-action bg-light">Submit Report</a>
+				<a href="RecordMeeting.php" class="list-group-item list-group-item-action bg-light">Project Diary</a>
+			</div>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+				<button class="btn btn-primary" id="menu-toggle">&#9776; </button>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<?php echo $_SESSION['StudentID'];?>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+								<a class="dropdown-item"
+									href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="div1">
+				<div class="container">
+
+					<strong style="border-bottom-style:solid;">Past Year Report</strong>
+					<p></p>
+					<div class="div2">
+						<div class="div3">
+							<div class="form-group">
+								<p></p>
+								<div class="input-group" style="">
+
+									<input class="input-group-addon"
+										style="background-color:rgba(100, 149, 237,1);text-align:center"
+										placeholder="Search" disabled></input>
+									<input type="text" name="search_text" id="search_text" placeholder="Search by Title"
+										class="form-control" />
+								</div>
+							</div>
+							<br />
+							<div id="result"></div>
+						</div>
+						<div style="clear:both"></div>
+						<br />
+					</div>
+					<p></p>
 				</div>
 			</div>
-			<br />
-			<div id="result"></div>
+			<!-- /#page-content-wrapper -->
+
 		</div>
-		<div style="clear:both"></div>
-		<br />
-</div>
-<p></p>
-</div>
+		<!-- /#wrapper -->
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="../vendor/jquery/jquery.min.js"></script>
+		<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Menu Toggle Script -->
 		<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "auto";
-}
+			$("#menu-toggle").click(function (e) {
+				e.preventDefault();
+				$("#wrapper").toggleClass("toggled");
+			});
+		</script>
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
+</body>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</div>
-	</body>
 </html>
-
-
-
-
-
-
-

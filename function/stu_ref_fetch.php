@@ -20,7 +20,7 @@ if(mysqli_num_rows($result) > 0)
 					<table class="table table bordered">
 						<tr>
 						<th>Title</th>
-							<th>Name</th>
+							<th>File Name</th>
 							<th>Download</th>
 							
 						</tr>';

@@ -1,4 +1,7 @@
-<?php include '../includes/db.connect.php'?>
+<?php include '../includes/db.connect.php';
+$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+$query = "SELECT * FROM teacher";
+$res = mysqli_query($connect,$query); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +16,31 @@
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+     
 
   <!-- Custom styles for this template -->
   <link href="../css/simple-sidebar.css" rel="stylesheet">
+<style>
+  input{
+ margin-left:-10px;
 
+  
+  
+border-radius:4px;
+  }
+  .paginate_button{
+    white-space:wrap;
+color:black;
+
+  }
+  .dataTables_length{
+     bottom:10%:
+  }
+    </style>
 </head>
 
 <body>
@@ -55,7 +79,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <?php echo $_SESSION['StudentID'];?>
+                <?php echo $_SESSION['adminID'];?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
@@ -68,36 +92,33 @@
         </div>
       </nav>
 
-      <form name="StudentInfo" action="../function/add_StudentInfo.php" method="POST">
-        <strong style="border-bottom-style:solid;margin-left:10px;font-size:15px">Update Profile</strong>
-        <p></p>
-        <div style="margin-left:10px;border-style:solid;width:525px">
+      <div class="table-responsive" style="width:95%;">
+  <table id="data" class="table table-striped table-bordered">
+  	<thead>
+  		<tr>
+  			<td>Name</td>
+  			<td>TeacherID</td>
+  			<td>DepartmentName</td>
+  		</tr>
+  	</thead>
 
-          <p></p>
-          <div style="margin-left:10px">
-            <h6 for="Email">Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:
-            </h6>
-            <input id="Email" name="Email" autofocus>
-            <p></p>
-          </div>
-          <div style="margin-left:10px">
-            <h6 for="PhoneNumber">Phone Number :</h6>
-            <input type="tel" id="PhoneNumber" name="PhoneNumber" placeholder="123-4556678" pattern="[0-9]{3}-[0-9]{7}"
-              required>
-          </div>
+  	<?php
+  	while ($row=mysqli_fetch_array($res)) {
+  		echo '
+  		<tr>
+  			<td>'.$row["Name"]. '</td>
+  			<td>'.$row["TeacherID"]. '</td>
+  			<td>'.$row["DepartmentName"]. '</td>
+  		</tr>
+  		';
+  	}
+  	?>
+  </table>
+ </div>
 
-          <br>
-          <br>
-
-          <p>
-            <button id="StudentInfo_btn" name="StudentInfo_btn" style="margin-left:47%" class="btn  btn-sm btn-primary">
-              Continue
-            </button>
-          </p>
-        </div>
+ <div id="disp_data"></div>
 
 
-      </form>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -105,9 +126,13 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+ 
+  
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
+       
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <!-- <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>      -->
   <!-- Menu Toggle Script -->
   <script>
     $("#menu-toggle").click(function (e) {
@@ -115,6 +140,12 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+  <script>
+	$(document).ready(function(){
+		$('#data').DataTable();
+	});
+
+</script>
 
 </body>
 

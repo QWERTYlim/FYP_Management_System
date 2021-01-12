@@ -26,12 +26,13 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+      <a href="StudentHome.php"class="list-group-item list-group-item-action bg-light">Update&nbspStudent&nbspInfo</a>
+      <a href="requestForm.php"class="list-group-item list-group-item-action bg-light">Request&nbspTeacher</a>
+      <a href="set_appointment.php"class="list-group-item list-group-item-action bg-light">Make&nbspAppointment</a>
+      <a href="uploadRef.php"class="list-group-item list-group-item-action bg-light">Upload&nbspReference&nbspFile</a>
+      <a href="showReference.php"class="list-group-item list-group-item-action bg-light">Pass Year Report</a>
+      <a href="uploadReport.php"class="list-group-item list-group-item-action bg-light">Submit Report</a>
+      <a href="RecordMeeting.php"class="list-group-item list-group-item-action bg-light">Project Diary</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -48,12 +49,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
+           
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
@@ -71,8 +67,7 @@
 
       <div class="container-fluid">
         <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+      
       </div>
     </div>
     <!-- /#page-content-wrapper -->

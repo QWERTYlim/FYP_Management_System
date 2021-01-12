@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
     $sid =$_SESSION['StudentID'];
     $teacher=$_SESSION['TeacherID'];
     $title = $_POST["title"];
+    $dates=$_POST['dates'];
 
     if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
         echo "You file extension must be .zip, .pdf or .docx";
@@ -37,7 +38,7 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
         
         if (move_uploaded_file($file, $destination)) {
 
-            $sql = "INSERT INTO uploadreport(sid,filetitle,name,size,teacherName) VALUES ('$sid','$title','$filename','$size','$teacher')";
+            $sql = "INSERT INTO uploadreport(sid,filetitle,name,size,teacherName,date) VALUES ('$sid','$title','$filename','$size','$teacher','$dates')";
             if (mysqli_query($connect,$sql)) {
                 echo'<script> alert("File was upload")</script>';
             echo'<script>window.location="../student/uploadReport.php"</script>';

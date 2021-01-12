@@ -1,15 +1,22 @@
 <?php include '../function/show.appointment.option.php'?>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" type="text/css" href="../css/blue.button.css">
-<link rel="stylesheet" type="text/css" href="../css/home.css">
+<html lang="en">
+
 <head>
-<title>Make Appointment</title> 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Make Appointment</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<?php
 if($_SESSION['TeacherID']=='0')
 {
     echo "<script type='text/javascript'>alert('Please Request teacher first!');
@@ -17,176 +24,129 @@ if($_SESSION['TeacherID']=='0')
     </script>";
 }
 ?>
-<style>
-	.div1{
-		
-	width:35%; height:auto;background-color:rgba(255,255,255,0.8);border-style:solid;margin-left:33%;margin-top:5%;font-size:15px;
-	
-	
-}
-.div2{
-	margin-left:10px;
-	border-style:solid;
-	width:96%;
-}
-.div3{
-	margin-left:10px;
-}
-body {
-   
-   background-image: url(../image/cover.jpeg);
-   background-size:cover;
-   background-repeat: no-repeat;
-   height: 100%;
-   font-family: 'Numans', sans-serif;
- }
- 
- .sidenav {
-   height:auto;
-   width: auto;
-   position: fixed;
-   z-index: 1;
-   top: 0;
-   left: 0;
-  
-   overflow-x: hidden;
-   transition: 0.5s;
-   padding-top: 60px;
- }
- 
- .sidenav a {
-   padding: 8px 8px 8px 32px;
-   text-decoration: none;
-   font-size: 20px;
-   color:black;
-   display: block;
-   transition: 0.3s;
-
- }
- 
- .sidenav a:hover {
-   background-color: white;
-   color:black;
- }
- 
- .sidenav .closebtn {
-  
-   font-size:30px;
-   cursor:pointer;
-   margin-bottom:25px;
-   position: absolute;
-   top: 13;
-   right: 206;
-   font-size: 30px;
-   margin-left: 50px;
-   
- }
- 
- @media screen and (max-height: 450px) {
-   .sidenav {padding-top: 15px;}
-   .sidenav a {font-size: 18px;}
- }
-	</style>
-
 </head>
+
 <body>
-	<div style="background-color:rgba(100, 149, 237,0.1)">
-<nav class="navbar navbar-expand-sm bg- navbar-dark ">
-  <ul class="navbar-nav">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-<div id="mySidenav" class="sidenav"style="background-color:rgba(100, 149, 237,0.5)">
 
-  <h5 class="closebtn" onclick="closeNav()">&#9776; </h5>
-  <a style="border-bottom-style:solid;">
-  <a href="StudentHome.php"style="border-bottom-style:solid; ">Update&nbspStudent&nbspInfo</a>
-  <a href="requestForm.php"style="border-bottom-style:solid;">Request&nbspTeacher</a>
-  <a href="set_appointment.php"style="border-bottom-style:solid;">Make&nbspAppointment</a>
-  <a href="uploadRef.php"style="border-bottom-style:solid;">Upload&nbspReference&nbspFile</a>
-  <a href="showReference.php"style="border-bottom-style:solid;">show&nbspUpload</a>
-  <a href="uploadReport.php"style="border-bottom-style:solid;">Upload&nbspReport</a>
-  <a href="RecordMeeting.php"style="border-bottom-style:solid;">Recording&nbspMeeting</a>
-  
-</div>
-<li class="nav-item active">
-      <a class="nav-link" href=""style="color:black;font-size:20px">Welcome , <?php echo $_SESSION['studentName'];?>!! </a>
-    </li>
-	<li class="nav-item dropdown bg-" Style="font-size:20px;margin-left:950px;">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Style="color:black;"><?php echo $_SESSION['StudentID'];?></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown"  Style="background:rgba(25,184,254,0.2);">
-                <a class="dropdown-item" href="StudentUpdateInfo.php" Style="color:black"><?php echo $_SESSION['studentName'];?></a>
-                <a class="dropdown-item" href="../function/student_logout_function.php" Style="color:black">Logout</a>
-               
-                
-                <div class="dropdown-divider">
-               
-            </li>
-  </ul>
-  
-</nav>
-</div>
-<div class="div1">
-<form name="appointment" action="../function/add.appointment.php" method="POST">
+	<div class="d-flex" id="wrapper">
 
-<strong style="border-bottom-style: solid;margin-left:10px">Make Appointment</strong>
-<p>
-</p>
-<div class="div2">
-	<div class="div3">
-		<p></p>
-		
-			<h6 for="faculty">Department&nbsp:</h6>
-			<select id="faculty" name="faculty" style="width: 50%;">
-				<?php echo $options;?>
-</select>
-<p></p>
-			<h6 for="teacher">Teacher&nbsp:</h6>
-			<select id="teacher" name="teacher" style="width: 50%;">
-				<?php echo $options3;?>
-			</select>
-		<p></p>
-			<h6 for="room">Room&nbsp:</h6>
-			<select id="room" name="room" style="width: 50%;">
-				<?php echo $options2;?>
-			</select>
-			<p></p>
-			<h6 for="time">Time&nbsp:<h6>
-			<select id="time" name="time" style="width: 50%;">
-				<?php echo $options4;?>
-			</select>
-			<p></p>
-			<h6 for="date">Date&nbsp:</h6>
-			<input type="date" name="dates" id="dates">
-			</p>
+		<!-- Sidebar -->
+		<div class="bg-light border-right" id="sidebar-wrapper">
+			<div class="sidebar-heading">Final Year Project </div>
+			<div class="list-group list-group-flush">
+				<a href="StudentHome.php"
+					class="list-group-item list-group-item-action bg-light">Update&nbspStudent&nbspInfo</a>
+				<a href="requestForm.php"
+					class="list-group-item list-group-item-action bg-light">Request&nbspTeacher</a>
+				<a href="set_appointment.php"
+					class="list-group-item list-group-item-action bg-light">Make&nbspAppointment</a>
+				<a href="showReference.php" class="list-group-item list-group-item-action bg-light">Past Year Report</a>
+				<a href="uploadReport.php" class="list-group-item list-group-item-action bg-light">Submit Report</a>
+				<a href="RecordMeeting.php" class="list-group-item list-group-item-action bg-light">Project Diary</a>
+			</div>
+		</div>
+		<!-- /#sidebar-wrapper -->
 
-			<button id="appointment_btn" name="appointment_btn" class="btn btn-sm btn-primary" style="margin-left:168px">
-				Continue
-			</button>
-		<p></p>
-		</div>		
-<!--
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+				<button class="btn btn-primary" id="menu-toggle">&#9776; </button>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<?php echo $_SESSION['StudentID'];?>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+								<a class="dropdown-item"
+									href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<form name="appointment" action="../function/add.appointment.php" method="POST">
+
+				<strong style="border-bottom-style: solid;margin-left:10px">Make Appointment</strong>
+				<p>
+				</p>
+				<div style="margin-left:10px;border-style:solid;width:525px">
+
+					<p></p>
+					<div style="margin-left:10px;">
+						<h6 for="faculty">Department&nbsp:</h6>
+						<select id="faculty" name="faculty" style="width: 50%;">
+							<?php echo $options;?>
+						</select>
+						<p></p>
+						<h6 for="teacher">Teacher&nbsp:</h6>
+						<select id="teacher" name="teacher" style="width: 50%;">
+							<?php echo $options3;?>
+						</select>
+						<p></p>
+						<h6 for="room">Room&nbsp:</h6>
+						<select id="room" name="room" style="width: 50%;">
+							<?php echo $options2;?>
+						</select>
+						<p></p>
+						<h6 for="time">Time&nbsp:<h6>
+								<select id="time" name="time" style="width: 50%;">
+									<?php echo $options4;?>
+								</select>
+								<p></p>
+								<h6 for="date">Date&nbsp:</h6>
+								<input type="date" name="dates" id="dates">
+								</p>
+
+								<button id="appointment_btn" name="appointment_btn" class="btn btn-sm btn-primary"
+									style="margin-left:195px">
+									submit
+								</button>
+								<p></p>
+					</div>
+					<!--
 		<div style= "width:100%; height: 220px;">
 
 		</div>-->
 
-		
-</div>
-</div>
 
-	
-	</form>
-</div>
 
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "auto";
-}
+				</div>
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+			</form>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function (e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+
 </body>
-</html> 
+
+</html>
