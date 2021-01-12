@@ -110,7 +110,7 @@ body {
 <li class="nav-item active">
       <a class="nav-link" href=""style="color:black;font-size:20px">Welcome , <?php echo $_SESSION['studentName'];?>!! </a>
     </li>
-	<li class="nav-item dropdown bg-" Style="font-size:20px;margin-left:970px;">
+	<li class="nav-item dropdown bg-" Style="font-size:20px;margin-left:950px;">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Style="color:black;"><?php echo $_SESSION['StudentID'];?></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown"  Style="background:rgba(25,184,254,0.2);">
                 <a class="dropdown-item" href="StudentUpdateInfo.php" Style="color:black"><?php echo $_SESSION['studentName'];?></a>

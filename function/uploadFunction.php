@@ -14,7 +14,7 @@ $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 if (isset($_POST['save'])) { // if save button on the form is clicked
     // name of the uploaded file
     $filename = $_FILES['myfile']['name'];
-
+    $title = $_POST["title"];
     // destination of the file on the server
     $destination = '../ref_upload/' . $filename;
 
@@ -33,7 +33,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
 
-            $sql = "INSERT INTO uploadref (name, size, downloads,SID) VALUES ('$filename', $size, 0,'". $_SESSION['StudentID']."')";
+            $sql = "INSERT INTO uploadref (title,name, size,SID) VALUES ('$title','$filename', $size,'". $_SESSION['StudentID']."')";
             if (mysqli_query($connect, $sql)) {
                 echo'<script> alert("File was upload")</script>';
             echo'<script>window.location="../student/StudentHome.php"</script>';

@@ -18,7 +18,7 @@ if(isset($_SESSION['StudentID']))
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 
 	<link rel="stylesheet" type="text/css" href="../css/blue.button.css">
-	<button class="blue"><a href="../index.php" class="blue">Home</a></button>
+	<button class="blue"><a href="admin_home.php" class="blue">Home</a></button>   
 </head>
 <body>
 	<form name="TeacherInfo" action="../function/admin_login_function.php" method="POST">
