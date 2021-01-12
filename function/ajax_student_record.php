@@ -14,35 +14,35 @@ echo "<table>";
 
 echo "<thead>";
 	echo "<tr>";
-	echo "<th>";echo"SID";echo "</th>";
-	echo "<th>";echo"File";echo "</th>";
-	echo "<th>";echo"Download";echo "</th>";
-	echo "<th>";echo"Issues identified";echo "</th>";
-	echo "<th>";echo"Feedback received";echo "</th>";
-	echo "<th>";echo"Action taken on feedback";echo "</th>";
-	echo "<th>";echo"Matters to discuss";echo "</th>";
-	echo "<th>";echo"Time Upload";echo "</th>";
-	echo "<th>";echo"noted";echo "</th>";
-	echo "<th>";echo"Info";echo "</th>";
+	echo "<th style='border:2px solid black'>";echo"SID";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"File";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Download";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Issues identified";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Feedback received";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Action taken on feedback";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';;echo"Matters to discuss";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Time Upload";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"noted";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Info";echo '&nbsp';"</th>";
 	echo"</tr>";
 echo "</thead>";
 
 while($row=mysqli_fetch_array($res)){
-	echo "<tr>";
-	echo "<td>";echo $row["sid"];echo "</td>";
-	echo "<td>";echo $row["file"];echo "</td>";
-	echo "<td>";?><a href="../function/ajax_student_record.php?file_name=<?php echo $row["file"]; ?>">Download</a><?php echo "</td>";
-	echo "<td>";echo $row["issues"];echo "</td>";
-	echo "<td>";echo $row["feedback"];echo "</td>";
-	echo "<td>";echo $row["actionfeedback"];echo "</td>";
-	echo "<td>";echo $row["matters"];echo "</td>";
-	echo "<td>";echo $row["created_at"];echo "</td>";
-	echo "<td>";echo $row["seen"];echo "</td>";
-	echo "<td>";?>
-	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Seen" onclick="approve(this.id)">
+	echo "<tr style='border:2px solid black'>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["sid"];echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["file"];echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';?><a href="../function/ajax_student_record.php?file_name=<?php echo $row["file"]; ?>">Download</a><?php echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["issues"];echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["feedback"];echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["actionfeedback"];echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["matters"];echo "</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["created_at"];echo '&nbsp';"</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';echo $row["seen"];echo '&nbsp';"</td>";
+	echo "<td style='border:2px solid black'>";echo '&nbsp';?>
+	<input type="button" id="<?php echo $row["id"]; ?>" name="<?php echo $row["id"];?>" value="Approve" onclick="approve(this.id)">
 	
 
-	<?php echo "</td";
+	<?php echo '&nbsp';"</td";
 	echo"</tr>";
  }
  echo "</table>";
@@ -52,7 +52,7 @@ while($row=mysqli_fetch_array($res)){
 if($status=="approve"){
 	$connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 	$id=$_GET["id"];
-	$query = "update recordmeeting set seen='seen' where id='$id'";
+	$query = "update recordmeeting set seen='approve' where id='$id'";
 	$res = mysqli_query($connect,$query); 
 }
 

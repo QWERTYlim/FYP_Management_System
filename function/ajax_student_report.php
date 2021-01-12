@@ -13,22 +13,22 @@ $res = mysqli_query($connect,$query);
 echo "<table>";
 
 echo "<thead>";
-	echo "<tr>";
-		echo "<th>";echo"SID";echo "</th>";
-		echo "<th>";echo"Title";echo "</th>";
-		echo "<th>";echo"File";echo "</th>";
-		echo "<th>";echo"Download";echo "</th>";
-		echo "<th>";echo"Action";echo "</th>";
+	echo "<tr style='border:2px solid black'>";
+		echo "<th style='border:2px solid black'>";echo"SID";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Title";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo '&nbsp';echo"File";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Download";echo '&nbsp';"</th>";
+		echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Action";echo '&nbsp'; "</th>";
 	echo"</tr>";
 echo "</thead>";
 
 while($row=mysqli_fetch_array($res)){
-	echo "<tr>";
-	echo "<td>";echo $row["sid"];echo "</td>";
-    echo "<td>";echo $row["filetitle"];echo "</td>";
-    echo "<td>";echo $row["name"];echo "</td>";
-	echo "<td>";?><a href="../function/ajax_student_report.php?file_name=<?php echo $row["name"]; ?>">Download</a><?php echo "</td>";
-	echo "<td>";?><a href="../teacher/edit_report.php?id=<?php echo $row["id"]; ?>">Edit</a><?php echo "</td>";
+	echo "<tr style='border:2px solid black'>";
+	echo "<td style='border:2px solid black'>";echo $row["sid"];echo '&nbsp';"</td>";
+    echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["filetitle"];echo '&nbsp';"</td>";
+    echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["name"];echo '&nbsp';"</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';?><a href="../function/ajax_student_report.php?file_name=<?php echo $row["name"]; ?>">Download</a><?php echo '&nbsp';"</td>";
+	echo "<td style='border:2px solid black'>";echo'&nbsp';?><a href="../teacher/edit_report.php?id=<?php echo $row["id"]; ?>">Edit</a><?php echo'&nbsp'; "</td>";
 
 	
 	
