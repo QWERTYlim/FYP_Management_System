@@ -8,7 +8,7 @@ $status=$_GET["status"];
 if($status=="disp")
 {
 $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
-$query = "SELECT * FROM  formrequest WHERE teacher='". $_SESSION['Name']."'" ;
+$query = "SELECT * FROM  formrequest WHERE teacher='". $_SESSION['TeacherName']."'" ;
 $res = mysqli_query($connect,$query); 
 echo "<table>";
 

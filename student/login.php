@@ -18,36 +18,42 @@ if(isset($_SESSION['StudentID']))
 
 <head>
 	<title>Student Login</title>
-	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" type="text/css" href="">
 
-	<link rel="stylesheet" type="text/css" href="../css/blue.button.css">
-	<button class="blue"><a href="../index.php" class="blue">Home</a></button>
+	<link rel="stylesheet" href="../css/main.css">
+	
+	
 </head>
 <body>
-	<form name="StudentInfo" action="../function/student_login_function.php" method="POST">
-		<div class="sidenav">
-			<div class="login-main-text">
-			<h2>Application<br> Login Page</h2>
-			<p>Login from here to access.</p>
-			</div>
-		</div>
-		<div class="main">
-			<div class="col-md-6 col-sm-12">
-			<div class="login-form">
-				<form>
-					<div class="form-group">
-						<label>Student ID</label>
-						<input type="text" class="form-control" placeholder="User Name" id="StudentID" name="StudentID">
-					</div>
-					<div class="form-group">
-						<label>Password</label>
-						<input type="password" class="form-control" placeholder="Password" id="Password" name="Password">
-					</div>
-					<button type="submit" class="btn btn-black" id="btn" name="btn">Login</button>
-				</form>
-			</div>
-			</div>
-		</div>
+
+	<form name="StudentInfo" action="../function/student_login_function.php" method="POST" class="">
+		<div class="container-fluid">
+      		<div class="row">
+       			<div class="col-md-2 col-sm-6"></div>
+       		    <div class="col-md-1"></div>
+        		<div class="col-md-6">
+          			<div class="row">
+              			<div class="col-sm-6">
+              				<div class="div1">
+								<div class="form">
+									<div>
+										 <img src="../image/logo.png">
+										 <label>Student ID</label>
+										 <input type="text" class="form-control" placeholder="User Name" id="StudentID" name="StudentID">
+									</div>
+								   	<div>
+										 <label>Password</label>
+										 <input type="password" class="form-control" placeholder="Password" id="Password" name="Password">
+										 <br>	
+										 <button type="submit" class="btn btn-primary" id="btn" name="btn">Login</button>
+									</div>
+								</div>
+							</div>
+           				</div>
+        			</div>
+        		</div>
+      		</div>
+    	</div>
 	</form>
 	
 </body>
