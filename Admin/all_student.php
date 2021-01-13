@@ -3,7 +3,7 @@
     if($_SESSION['adminID']=="")
     {
         echo "<script type='text/javascript'>alert('Please login first!');
-        window.location='admin_login.php';
+        window.location='login.php';
         </script>";
     }
 ?>

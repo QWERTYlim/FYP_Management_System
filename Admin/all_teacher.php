@@ -3,7 +3,7 @@
     if($_SESSION['adminID']=="")
     {
         echo "<script type='text/javascript'>alert('Please login first!');
-        window.location='admin_login.php';
+        window.location='login.php';
         </script>";
     }
 ?>
@@ -15,8 +15,12 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../js/all_teacher.js"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
+		
+
 	</head>
 	<body>
+		
 		<div class="container">
 			<br />
 			<br />
@@ -41,7 +45,19 @@
 </html>
 
 
-
+<script>
+ 
+ 
+    $(function () {
+        $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
+            var rating = data.rating;
+            $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+            $(this).parent().find('.result').text('rating :'+ rating);
+            $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+        });
+    });
+ 
+</script>
 
 
 

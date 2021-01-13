@@ -32,7 +32,8 @@ if(mysqli_num_rows($result) > 0)
 			<tr>
                 <td>'.$row["Name"].'</td>
                 <td>'.$row["TeacherID"].'</td>
-                <td>'.$row["DepartmentName"].'</td>
+				<td>'.$row["DepartmentName"].'</td>
+				<
                 
             
 			</tr>

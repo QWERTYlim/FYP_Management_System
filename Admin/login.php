@@ -28,14 +28,14 @@ if(isset($_SESSION['StudentID']))
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-	<form class="login100-form validate-form" name="StudentInfo" action="../function/teacher_login_function.php" method="POST" class="">
+	<form class="login100-form validate-form" name="StudentInfo" action="../function/admin_login_function.php" method="POST" class="">
 					<img  src="../image/logo2.png" width="400" height="400">
 					<span class="login100-form-title p-b-33">
-						<b>Teacher Login</b>
+						<b>Admin Login</b>
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid Teacher ID is required: D180293B">
-						<input class="input100" type="text" name="TeacherID" placeholder="TeacherID">
+						<input class="input100" type="text" name="AdminID" placeholder="AdminID">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>

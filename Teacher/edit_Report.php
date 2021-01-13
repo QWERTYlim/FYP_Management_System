@@ -5,8 +5,10 @@
 
 <head>
 	<title>Student Report </title>
-	<link rel="stylesheet" type="text/css" href="../css/blue.button.css">
-	
+    <link rel="stylesheet" type="text/css" href="../css/blue.button.css">
+    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 </head>
 
 
@@ -42,11 +44,36 @@ while($row = mysqli_fetch_array($result1))
     <textarea cols="45" rows="5" name="message" >
     <?php echo $comment?>
     </textarea>
+    <div class="rateyo" id= "rating"
+         				data-rateyo-rating="4"
+        				 data-rateyo-num-stars="5"
+         				data-rateyo-score="3">
+     </div>
+     <div>
     
+    <span class='result'>Rating:0</span>
+    <input type="hidden" name="rating">
+</br>
     <input type="submit" name="submit"value="submit">
  
  
 </form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 </body>
 
 </html>
+<script>
+ 
+ 
+    $(function () {
+        $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
+            var rating = data.rating;
+            $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+            $(this).parent().find('.result').text('Rating :'+ rating);
+            $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+        });
+    });
+ 
+</script>

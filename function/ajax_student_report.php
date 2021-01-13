@@ -17,8 +17,10 @@ echo "<thead>";
 		echo "<th>";echo"SID";echo "</th>";
 		echo "<th>";echo"Title";echo "</th>";
 		echo "<th>";echo"File";echo "</th>";
+		echo "<th>";echo"Rate";echo "</th>";
 		echo "<th>";echo"Download";echo "</th>";
 		echo "<th>";echo"Action";echo "</th>";
+		
 	echo"</tr>";
 echo "</thead>";
 
@@ -26,9 +28,11 @@ while($row=mysqli_fetch_array($res)){
 	echo "<tr>";
 	echo "<td>";echo $row["sid"];echo "</td>";
     echo "<td>";echo $row["filetitle"];echo "</td>";
-    echo "<td>";echo $row["name"];echo "</td>";
+	echo "<td>";echo $row["name"];echo "</td>";
+	echo "<td>";echo $row["Rating"];echo "</td>";
 	echo "<td>";?><a href="../function/ajax_student_report.php?file_name=<?php echo $row["name"]; ?>">Download</a><?php echo "</td>";
 	echo "<td>";?><a href="../teacher/edit_report.php?id=<?php echo $row["id"]; ?>">Edit</a><?php echo "</td>";
+	
 
 	
 	
@@ -48,7 +52,7 @@ if (isset($_GET['file_name'])) {
 	$result = mysqli_query($connect, $sql);
 	
 	$filepath = '../report_upload/' . $name;
-	echo'<script> alert("Wrong!")</script>';
+	echo'<script> alert("Wroasdasdng!")</script>';
 
 
 	if (file_exists($filepath)) {
