@@ -25,36 +25,40 @@ if(isset($_SESSION['StudentID']))
 	
 </head>
 <body>
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+	<form class="login100-form validate-form" name="StudentInfo" action="../function/student_login_function.php" method="POST" class="">
+					<img  src="../image/logo2.png" width="400" height="400">
+					<span class="login100-form-title p-b-33">
+						<b>Student Login</b>
+					</span>
 
-	<form name="StudentInfo" action="../function/student_login_function.php" method="POST" class="">
-		<div class="container-fluid">
-      		<div class="row">
-       			<div class="col-md-2 col-sm-6"></div>
-       		    <div class="col-md-1"></div>
-        		<div class="col-md-6">
-          			<div class="row">
-              			<div class="col-sm-6">
-              				<div class="div1">
-								<div class="form">
-									<div>
-										 <img src="../image/logo.png">
-										 <label>Student ID</label>
-										 <input type="text" class="form-control" placeholder="User Name" id="StudentID" name="StudentID">
-									</div>
-								   	<div>
-										 <label>Password</label>
-										 <input type="password" class="form-control" placeholder="Password" id="Password" name="Password">
-										 <br>	
-										 <button type="submit" class="btn btn-primary" id="btn" name="btn">Login</button>
-									</div>
-								</div>
-							</div>
-           				</div>
-        			</div>
-        		</div>
-      		</div>
-    	</div>
-	</form>
+					<div class="wrap-input100 validate-input" data-validate = "Valid Student ID is required: D180293B">
+						<input class="input100" type="text" name="StudentID" placeholder="StudentID">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="Password" placeholder="Password">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn">
+							Sign in
+						</button>
+					</div>
+
+					
+
+					
+				</form>
+				</div>
+		</div>
+	</div>
 	
 </body>
 
