@@ -28,7 +28,7 @@ while($row=mysqli_fetch_array($res)){
 	echo "<td style='border:2px solid black'>";echo $row["sid"];echo '&nbsp';"</td>";
     echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["filetitle"];echo '&nbsp';"</td>";
     echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["name"];echo '&nbsp';"</td>";
-    echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["Rating"];echo '/5';"</td>";
+    echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["Rating"];echo '/100';"</td>";
 	echo "<td style='border:2px solid black'>";echo'&nbsp';?><a href="../function/ajax_student_report.php?file_name=<?php echo $row["name"]; ?>">Download</a><?php echo '&nbsp';"</td>";
 	echo "<td style='border:2px solid black'>";echo'&nbsp';?><a href="../teacher/edit_report.php?id=<?php echo $row["id"]; ?>">Edit</a><?php echo'&nbsp'; "</td>";
 
