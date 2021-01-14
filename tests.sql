@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2021-01-13 17:48:54
--- 服务器版本： 10.4.14-MariaDB
--- PHP 版本： 7.4.11
+-- 生成日期： 2021-01-14 11:58:00
+-- 服务器版本： 10.4.17-MariaDB
+-- PHP 版本： 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -102,7 +102,7 @@ CREATE TABLE `formrequest` (
   `Title` varchar(255) NOT NULL,
   `file` varchar(255) NOT NULL,
   `size` int(11) NOT NULL,
-  `request` varchar(255) NOT NULL,
+  `request` varchar(255) NOT NULL DEFAULT 'Pending',
   `teacher` varchar(55) NOT NULL,
   `comment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -112,15 +112,8 @@ CREATE TABLE `formrequest` (
 --
 
 INSERT INTO `formrequest` (`id`, `sid`, `Title`, `file`, `size`, `request`, `teacher`, `comment`) VALUES
-(4, 'D190250B', '', 'jar_files.zip', 124066, 'Approve', 'Lim Pei Geok', 'try'),
-(5, 'D190250B', '', 'jar_files.rer', 547007, 'Approve', 'Lim Pei Geok', 'today'),
-(6, 'D190250B', '', 'jar_files.zip', 547007, 'Approve', 'Lim Pei Geok', 'done'),
-(7, 'D180293B', '', 'jar_files.zip', 121859, 'Approve', 'MuMu', 'all'),
-(8, 'D180293B', '', 'jar_files.zip', 121859, 'Approve', 'MuMu', 'want to be ur student'),
-(9, 'D190250B', '', 'Individual-Pizza.zip', 75539, 'Decline', 'Lim Pei Geok', ''),
-(10, 'D190250B', '', 'PizzaOrderingSystem (1).zip', 34662, 'Approve', 'Lim Pei Geok', ''),
-(11, 'D190250B', '', 'PizzaOrderingSystem (1).zip', 34662, 'Approve', 'Lim Pei Geok', ''),
-(12, 'D190250B', '', 'Revison2021.pdf', 140562, 'Approve', 'Lim Pei Geok', '123');
+(4, 'D190250B', 'FYPMS', 'jar_files.zip', 124066, 'Approve', 'Lim Pei Geok', 'Good'),
+(13, 'D190214B', 'FYPMS', 'HatchfulExport-All.zip', 30717, 'Reject', 'Lim Pei Geok', 'Pro in php');
 
 -- --------------------------------------------------------
 
@@ -195,9 +188,19 @@ CREATE TABLE `studentdetail` (
 INSERT INTO `studentdetail` (`ID`, `TeacherID`, `DepartmentName`, `StudentID`) VALUES
 (1, 456, 'Information Technology', 'D180293B'),
 (2, 123, 'Engineering', 'D190250B'),
-(5, 0, 'Engineering', 'D190214B'),
+(5, 123, 'Engineering', 'D190214B'),
 (6, 0, 'Information Technology', 'D190241B'),
-(7, 0, 'Natural Science', 'D190242B');
+(7, 0, 'Natural Science', 'D190242B'),
+(8, 0, 'Information Technology', 'D190243B'),
+(9, 0, 'Management Studies', 'yyyyy'),
+(10, 0, 'Engineering', 'aaaaa'),
+(11, 0, 'Engineering', 'bbbbb'),
+(12, 0, 'Engineering', 'dfgdfg'),
+(13, 0, 'Engineering', 'dfgdfg'),
+(14, 0, 'Engineering', 'dfgdfg'),
+(15, 0, 'Engineering', 'dfgdfg'),
+(16, 0, 'Engineering', 'lim'),
+(17, 0, 'Information Technology', 'D180293B');
 
 -- --------------------------------------------------------
 
@@ -208,7 +211,7 @@ INSERT INTO `studentdetail` (`ID`, `TeacherID`, `DepartmentName`, `StudentID`) V
 CREATE TABLE `studentinfo` (
   `id` int(11) NOT NULL,
   `StudentID` varchar(8) NOT NULL,
-  `Password` varchar(8) NOT NULL,
+  `Password` text NOT NULL,
   `studentName` varchar(50) NOT NULL,
   `PhoneNumber` varchar(11) NOT NULL,
   `Email` char(55) NOT NULL
@@ -219,10 +222,7 @@ CREATE TABLE `studentinfo` (
 --
 
 INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `studentName`, `PhoneNumber`, `Email`) VALUES
-(1, 'D190250B', 'CC07836R', 'Alex Tan Boon Leng', '123-1234567', 'alex@gmail.com.my'),
-(2, 'D180293B', 'DV48845T', 'Lim Yu Jie', '014-3883654', 'ashjfd@hh.com'),
-(5, 'D190214B', 'junwen', 'khongjunwen', '', ''),
-(7, 'D190242B', 'junwen01', 'alex', '', '');
+(17, 'D180293B', '62d272c026521417b26da3edf705a531e03b4ade', 'Lim Yu Jie', '', '');
 
 -- --------------------------------------------------------
 
@@ -328,8 +328,8 @@ CREATE TABLE `uploadreport` (
 INSERT INTO `uploadreport` (`id`, `sid`, `filetitle`, `name`, `size`, `comment`, `teacherName`, `date`, `Rating`) VALUES
 (14, 'D190250B', 'fyp', 'Test2020C (1).pdf', 124066, '    456', '123', NULL, 4.4),
 (15, 'D190214B', '11promax', 'Revison2021 (2).pdf', 140562, '', '0', '0000-00-00', NULL),
-(16, 'D190250B', '11promax', 'Revison2021 (2).pdf', 140562, '    123    ', '123', '0000-00-00', NULL),
-(17, 'D190250B', '11promax', 'Revison2021 (2).pdf', 140562, '', '123', '2021-01-13', NULL);
+(16, 'D190250B', '11promax', 'Revison2021 (2).pdf', 140562, '    123    ', '123', '0000-00-00', 3.6),
+(17, 'D190250B', '11promax', 'Revison2021 (2).pdf', 140562, '', '123', '2021-01-13', 3.7);
 
 --
 -- 转储表的索引
@@ -433,7 +433,7 @@ ALTER TABLE `department`
 -- 使用表AUTO_INCREMENT `formrequest`
 --
 ALTER TABLE `formrequest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用表AUTO_INCREMENT `recordmeeting`
@@ -451,13 +451,13 @@ ALTER TABLE `room`
 -- 使用表AUTO_INCREMENT `studentdetail`
 --
 ALTER TABLE `studentdetail`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- 使用表AUTO_INCREMENT `studentinfo`
 --
 ALTER TABLE `studentinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- 使用表AUTO_INCREMENT `teacher`
