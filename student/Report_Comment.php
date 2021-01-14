@@ -1,5 +1,5 @@
 <?php include '../includes/db.connect.php';
-if(!isset($_SESSION['TeacherID']))
+if(!isset($_SESSION['StudentID']))
 {
   
     echo "<script type='text/javascript'>alert('Please Login');
@@ -16,7 +16,7 @@ if(!isset($_SESSION['TeacherID']))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Time Slot</title>
+  <title>Report Comment</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/show_reference.js"></script>
@@ -34,12 +34,11 @@ if(!isset($_SESSION['TeacherID']))
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Final Year Project </div>
+      <div class="sidebar-heading">FYP Management System </div>
       <div class="list-group list-group-flush">
       <a href="StudentHome.php"
 					class="list-group-item list-group-item-action bg-light">Update&nbspStudent&nbspInfo</a>
-				<a href="requestForm.php"
-					class="list-group-item list-group-item-action bg-light">Request&nbspTeacher</a>
+
 				<a href="set_appointment.php"
 					class="list-group-item list-group-item-action bg-light">Make&nbspAppointment</a>
 				<a href="showReference.php" class="list-group-item list-group-item-action bg-light">Past Year Report</a>
@@ -71,6 +70,7 @@ if(!isset($_SESSION['TeacherID']))
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="Student_Timeslot.php">Request Lecture</a>
                 <a class="dropdown-item" href="Student_Timeslot.php">Timeslot</a>
                 <a class="dropdown-item" href="Report_comment.php">Report Comment</a>
                 <a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>

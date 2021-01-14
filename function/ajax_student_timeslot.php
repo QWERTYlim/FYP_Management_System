@@ -14,7 +14,7 @@ echo "<table class='table table-striped table-bordered' style='width:80%;margin-
 
 echo "<thead>";
 	echo "<tr>";
-	echo "<th style='border:2px solid black'>";echo"Teacher";echo '&nbsp';"</th>";
+	echo "<th style='border:2px solid black'>";echo"Lecture";echo '&nbsp';"</th>";
 	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Room";echo '&nbsp';"</th>";
 	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Time";echo '&nbsp';"</th>";
 	echo "<th style='border:2px solid black'>";echo '&nbsp';echo"Date";echo '&nbsp';"</th>";

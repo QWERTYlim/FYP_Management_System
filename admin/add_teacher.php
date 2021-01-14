@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Student Info</title>
+  <title>Add New Lecture</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,15 +25,15 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Final Year Project </div>
+      <div class="sidebar-heading">FYP Management System </div>
       <div class="list-group list-group-flush">
-        <a href="add_room.php" class="list-group-item list-group-item-action bg-light">Add New Room</a>
+      <a href="add_room.php" class="list-group-item list-group-item-action bg-light">Add New Meeting Place</a>
         <a href="add_student.php" class="list-group-item list-group-item-action bg-light">Add New Student</a>
-        <a href="add_teacher.php" class="list-group-item list-group-item-action bg-light">Add New Teacher</a>
+        <a href="add_teacher.php" class="list-group-item list-group-item-action bg-light">Add New Lecture</a>
         <a href="all_student.php" class="list-group-item list-group-item-action bg-light">Student List</a>
-        <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Teacher List</a>
+        <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecture List</a>
       
-        <a href="delReference.php" class="list-group-item list-group-item-action bg-light">Delete Past Year Report</a>
+        <a href="delReference.php" class="list-group-item list-group-item-action bg-light"> Past Year Report</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -75,20 +75,20 @@ textarea {
 </style>
 <form method="Post" enctype="multipart/form-data" action="../function/insert_teacher.php">
 
-<strong style="margin-left:10px;border-bottom-style:solid;">Teacher List</strong>
+<strong style="margin-left:10px;border-bottom-style:solid;">Lecture List</strong>
     
     <p></p>
    <div style="margin-left:10px;border-style:solid;width:400px;">
    <p></p>
    <div style="margin-left:10px;">
     
-    <h6>Teacher ID :</h6>
+    <h6>Lecture ID :</h6>
     <input type="text" name="TeacherID" >
     <p></p>
-    <h6>Teacher Password :</h6>
+    <h6>Lecture Password :</h6>
     <input type="text" name="Tpassword" >
     <p></p>
-    <h6>Teacher Name :</h6>
+    <h6>Lecture Name :</h6>
     <input type="text" name="Tname" >
     <p></p>
     <div style="width:100%;">

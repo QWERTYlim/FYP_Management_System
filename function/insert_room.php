@@ -10,7 +10,7 @@
     $sql = "INSERT room (name) VALUES ('$room')";
     if (mysqli_query($connect, $sql)) {
         echo'<script> alert("File was upload")</script>';
-    echo'<script>window.location="../admin/admin_home.php"</script>';
+    echo'<script>window.location="../admin/all_student.php"</script>';
     }
  }
 ?>

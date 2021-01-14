@@ -33,11 +33,12 @@ if(!isset($_SESSION['TeacherID']))
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Final Year Project </div>
+      <div class="sidebar-heading">FYP Management System</div>
       <div class="list-group list-group-flush">
       <a href="student_list.php"class="list-group-item list-group-item-action bg-light">Student List</a>
       <a href="show_Report.php"class="list-group-item list-group-item-action bg-light">Student Report</a>
       <a href="show_Diary.php"class="list-group-item list-group-item-action bg-light">Project Diary</a>
+      <a href="show_Timeslot.php"class="list-group-item list-group-item-action bg-light">Timeslot</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -63,6 +64,7 @@ if(!isset($_SESSION['TeacherID']))
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 
                 <a class="dropdown-item"><?php echo $_SESSION['TeacherName'];?></a>
+                <a class="dropdown-item" href="Approve_appointment.php">Approve Appointment</a>
                 <a class="dropdown-item" href="student_rejected.php">Request Rejected</a>
                 <a class="dropdown-item" href="show_Request.php">Request Pending</a>
                 <div class="dropdown-divider"></div>

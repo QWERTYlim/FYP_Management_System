@@ -1,4 +1,11 @@
-<?php include '../function/show.appointment.option.php'?>
+<?php include '../function/show.appointment.option.php';
+if(!isset($_SESSION['StudentID']))
+{
+  
+    echo "<script type='text/javascript'>alert('Please Login');
+    window.location='login.php';
+    </script>";
+}?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,12 +39,11 @@ if($_SESSION['TeacherID']=='0')
 
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Final Year Project </div>
+            <div class="sidebar-heading">FYP Management System </div>
             <div class="list-group list-group-flush">
                 <a href="StudentHome.php"
                     class="list-group-item list-group-item-action bg-light">Update&nbspStudent&nbspInfo</a>
-                <a href="requestForm.php"
-                    class="list-group-item list-group-item-action bg-light">Request&nbspTeacher</a>
+               
                 <a href="set_appointment.php"
                     class="list-group-item list-group-item-action bg-light">Make&nbspAppointment</a>
                 <a href="showReference.php" class="list-group-item list-group-item-action bg-light">Past Year Report</a>
@@ -73,8 +79,9 @@ if($_SESSION['TeacherID']=='0')
                                 <a class="dropdown-item"
                                     href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="Student_Timeslot.php">Request Lecture</a>
                                 <a class="dropdown-item" href="Student_Timeslot.php">Timeslot</a>
-                <a class="dropdown-item" href="Report_comment.php">Report Comment</a>
+                                <a class="dropdown-item" href="Report_comment.php">Report Comment</a>
                                 <a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>
                             </div>
                         </li>

@@ -16,7 +16,7 @@ if(!isset($_SESSION['TeacherID']))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Student Request</title>
+  <title>Approve Appointment</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/show_reference.js"></script>
@@ -34,7 +34,7 @@ if(!isset($_SESSION['TeacherID']))
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Final Year Project </div>
+      <div class="sidebar-heading">FYP Management System</div>
       <div class="list-group list-group-flush">
       <a href="student_list.php"class="list-group-item list-group-item-action bg-light">Student List</a>
       <a href="show_Report.php"class="list-group-item list-group-item-action bg-light">Student Report</a>
@@ -78,7 +78,7 @@ if(!isset($_SESSION['TeacherID']))
 	<div class="table-wrapper" style="margin-left:10px">
 			<div class="table-title">
 				<div class="row">
-					<div class="col-sm-8" style="font-size: 35px;text-align: center;"><STRONG >Student Project Diary</strong></div>
+					<div class="col-sm-8" style="font-size: 35px;text-align: center;"><STRONG >Student Appointment</strong></div>
 				</div>
 				<p></p>
 			</div>

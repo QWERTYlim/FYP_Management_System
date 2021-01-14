@@ -4,10 +4,13 @@ include '../includes/db.connect.php'
 <?php
 if(isset($_POST['TeacherID'])){
     $TeacherID=$_POST['TeacherID'];
-    $Password=$_POST['Password'];
+    $Pword=$_POST['Password'];
+
+ 
+    $Pword=sha1("$Pword");
     
     
-    $result=mysqli_query($connect,"SELECT*FROM teacher where TeacherID='".$TeacherID."'and Password='".$Password."' ");
+    $result=mysqli_query($connect,"SELECT*FROM teacher where TeacherID='".$TeacherID."'and Password='".$Pword."' ");
 	if(mysqli_num_rows($result)>0){
         $name1=mysqli_query($connect,"SELECT Name FROM teacher WHERE TeacherID='".$TeacherID."'");
         $DID=mysqli_query($connect,"SELECT DepartmentName FROM teacher WHERE TeacherID='".$TeacherID."'");

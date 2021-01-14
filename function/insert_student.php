@@ -7,7 +7,7 @@
     $StudentID=$_POST['StudentID'];
     $password=$_POST['password'];
     $password=sha1("$password");
-    echo "$password";
+    
     // $password=sha1('$password');
     $name=$_POST['name'];
     $departmentID=$_POST['DepartmentName'];
@@ -19,7 +19,7 @@
     $sql2 = "INSERT INTO studentdetail (StudentID,DepartmentName,TeacherID) VALUES ('$StudentID','$departmentID', 0)";
     $reuslt=mysqli_query($connect,$sql2);
     echo'<script> alert("Student Added")</script>';
-    // echo'<script>window.location="../admin/admin_home.php"</script>';
+     echo'<script>window.location="../admin/all_student.php"</script>';
    }
  }
  

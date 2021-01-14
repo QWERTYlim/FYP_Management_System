@@ -16,7 +16,7 @@ if(!isset($_SESSION['TeacherID']))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Student Request</title>
+  <title>Project Diary</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/show_reference.js"></script>
@@ -34,11 +34,12 @@ if(!isset($_SESSION['TeacherID']))
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Final Year Project </div>
+      <div class="sidebar-heading">FYP Management System </div>
       <div class="list-group list-group-flush">
       <a href="student_list.php"class="list-group-item list-group-item-action bg-light">Student List</a>
       <a href="show_Report.php"class="list-group-item list-group-item-action bg-light">Student Report</a>
       <a href="show_Diary.php"class="list-group-item list-group-item-action bg-light">Project Diary</a>
+      <a href="show_Timeslot.php"class="list-group-item list-group-item-action bg-light">Timeslot</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -63,6 +64,7 @@ if(!isset($_SESSION['TeacherID']))
 			  <li class="nav-item dropdown">
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                  <a class="dropdown-item"><?php echo $_SESSION['TeacherName'];?></a>
+                 <a class="dropdown-item" href="Approve_appointment.php">Approve Appointment</a>
                 <a class="dropdown-item" href="student_rejected.php">Request Rejected</a>
                 <a class="dropdown-item" href="show_Request.php">Request Pending</a>
                 <div class="dropdown-divider"></div>

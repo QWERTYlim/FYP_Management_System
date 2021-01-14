@@ -49,7 +49,7 @@ if($status=="approve"){
 	$id=$_GET["id"];
 	$query = "update formrequest set request='Approve' where sid='$id'";
 	$res = mysqli_query($connect,$query); 
-	$query = "update studentdetail set TeacherID='". $_SESSION['TeacherID']."' where StudentID='$id'";
+	$query = "update studentdetail set TeacherID='".$_SESSION['TeacherID']."' where StudentID='$id'";
 	$res = mysqli_query($connect,$query); 
 }
 
