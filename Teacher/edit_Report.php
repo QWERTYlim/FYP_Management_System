@@ -102,25 +102,29 @@ while($row = mysqli_fetch_array($result1))
     <textarea cols="45" rows="5" name="message" id="message">
   
     </textarea>
-    <div class="form-inline">
-                  <div class="form-group">
-    <h6 class='result'>Rating:0</h6>
+ 
+
+               
+                  <h6 class='result'>Rating:0</h6>
+                 
     <div class="rateyo" id= "rating"
                         data-rateyo-rating="4"
                          data-rateyo-num-stars="5"
                         data-rateyo-score="3">
-     </div>
-     <div>
+    
     
    </div>
 
     <input type="hidden" name="rating">
-</br>
+    <p></p>
+    <input class="btn-sm btn-primary"type="submit" name="submit"value="submit" style="margin-left:286px;">
+    
+<p></p>
    
  </div>
 
  </div>
- <input class="btn-sm btn-primary"type="submit" name="submit"value="submit">
+ 
  <p></p>
 </form>
 
@@ -152,7 +156,10 @@ while($row = mysqli_fetch_array($result1))
             $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
             $(this).parent().find('.result').text('Rating :'+ rating);
             $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+            
         });
+        $(".rateyo").rateYo("option", "maxValue", 99);
+        $(".rateyo").rateYo("option", "numStars", 5);
     });
  
 </script>
