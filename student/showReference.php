@@ -112,7 +112,7 @@ if(!isset($_SESSION['StudentID']))
 								<div class="input-group" style="">
 
 									
-									<input type="text" name="search_text" id="search_text" placeholder="Search by Title"
+									<input type="text" name="search_text" id="search_text" placeholder="Search by Title / File Name / Sem"
 										class="form-control" />
 								</div>
 							</div>

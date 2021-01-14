@@ -10,9 +10,10 @@
     
     // $password=sha1('$password');
     $name=$_POST['name'];
+    $sem=$_POST['Sem'];
     $departmentID=$_POST['DepartmentName'];
     
-     $sql = "INSERT INTO studentinfo (StudentID,Password,studentName) VALUES ('$StudentID','$password', '$name')";
+     $sql = "INSERT INTO studentinfo (StudentID,Password,studentName,sem) VALUES ('$StudentID','$password', '$name','$sem')";
     
    $query= mysqli_query($connect,$sql);
    if($query){

@@ -110,6 +110,9 @@ if(!isset($_SESSION['StudentID']))
 
 
       </form>
+      <div class="elfsight-app-454dcb6f-746a-409a-ac86-195695bc467c"></div>
+      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+
     </div>
     <!-- /#page-content-wrapper -->
 

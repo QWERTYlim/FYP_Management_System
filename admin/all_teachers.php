@@ -47,7 +47,7 @@ if(!isset($_SESSION['adminID']))
         <a href="all_student.php" class="list-group-item list-group-item-action bg-light">Student List</a>
         <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecturer List</a>
       
-        <a href="delReference.php" class="list-group-item list-group-item-action bg-light"> Past Year Report</a>
+    
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

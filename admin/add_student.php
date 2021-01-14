@@ -44,7 +44,7 @@ if(!isset($_SESSION['adminID']))
         <a href="all_student.php" class="list-group-item list-group-item-action bg-light">Student List</a>
         <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecturer List</a>
       
-        <a href="delReference.php" class="list-group-item list-group-item-action bg-light"> Past Year Report</a>
+       
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -100,6 +100,9 @@ textarea {
     <p></p>
     <h6>Student Name :</h6>
     <input type="text" name="name" required>
+    <p></p>
+    <h6>Sem :</h6>
+    <input type="text" name="Sem" required>
     <p></p>
     <div style="width:100%;">
     <?php
