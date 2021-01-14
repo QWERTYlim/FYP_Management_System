@@ -65,7 +65,7 @@ if(!isset($_SESSION['TeacherID']))
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                  <a class="dropdown-item"><?php echo $_SESSION['TeacherName'];?></a>
                  <a class="dropdown-item" href="Approve_appointment.php">Approve Appointment</a>
-                <a class="dropdown-item" href="student_rejected.php">Request Rejected</a>
+               
                 <a class="dropdown-item" href="show_Request.php">Request Pending</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="../function/teacher_logout_function.php">Logout</a>

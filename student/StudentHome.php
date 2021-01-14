@@ -70,7 +70,7 @@ if(!isset($_SESSION['StudentID']))
 
                 <a class="dropdown-item" href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="Student_Timeslot.php">Request Lecture</a>
+                <a class="dropdown-item" href="requestForm.php">Request Lecturer</a>
                 <a class="dropdown-item" href="Student_Timeslot.php">Timeslot</a>
                 <a class="dropdown-item" href="Report_comment.php">Report Comment</a>
                 <a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>

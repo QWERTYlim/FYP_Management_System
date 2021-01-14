@@ -10,7 +10,7 @@
     </script>";
 }elseif($_SESSION['TeacherID']!='0')
 {
-    echo "<script type='text/javascript'>alert('Lecture Exists');
+    echo "<script type='text/javascript'>alert('Lecturer Exists');
     window.location='StudentHome.php';
     </script>";
 }
@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Request Lecture</title>
+  <title>Request Lecturer</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/show_reference.js"></script>
@@ -77,7 +77,7 @@
 
                 <a class="dropdown-item" href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="Student_Timeslot.php">Request Lecture</a>
+                <a class="dropdown-item" href="requestForm.php">Request Lecturer</a>
                 <a class="dropdown-item" href="Student_Timeslot.php">Timeslot</a>
                 <a class="dropdown-item" href="Report_comment.php">Report Comment</a>
                 <a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>

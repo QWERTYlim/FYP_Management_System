@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Add New Lecture</title>
+  <title>Add New Lecturer</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,9 +29,9 @@
       <div class="list-group list-group-flush">
       <a href="add_room.php" class="list-group-item list-group-item-action bg-light">Add New Meeting Place</a>
         <a href="add_student.php" class="list-group-item list-group-item-action bg-light">Add New Student</a>
-        <a href="add_teacher.php" class="list-group-item list-group-item-action bg-light">Add New Lecture</a>
+        <a href="add_teacher.php" class="list-group-item list-group-item-action bg-light">Add New Lecturer</a>
         <a href="all_student.php" class="list-group-item list-group-item-action bg-light">Student List</a>
-        <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecture List</a>
+        <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecturer List</a>
       
         <a href="delReference.php" class="list-group-item list-group-item-action bg-light"> Past Year Report</a>
       </div>
@@ -75,20 +75,20 @@ textarea {
 </style>
 <form method="Post" enctype="multipart/form-data" action="../function/insert_teacher.php">
 
-<strong style="margin-left:10px;border-bottom-style:solid;">Lecture List</strong>
+<strong style="margin-left:10px;border-bottom-style:solid;">Lecturer List</strong>
     
     <p></p>
    <div style="margin-left:10px;border-style:solid;width:400px;">
    <p></p>
    <div style="margin-left:10px;">
     
-    <h6>Lecture ID :</h6>
+    <h6>Lecturer ID :</h6>
     <input type="text" name="TeacherID" >
     <p></p>
-    <h6>Lecture Password :</h6>
+    <h6>Lecturer Password :</h6>
     <input type="text" name="Tpassword" >
     <p></p>
-    <h6>Lecture Name :</h6>
+    <h6>Lecturer Name :</h6>
     <input type="text" name="Tname" >
     <p></p>
     <div style="width:100%;">

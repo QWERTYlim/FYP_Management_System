@@ -63,8 +63,8 @@
 
               <a class="dropdown-item"><?php echo $_SESSION['TeacherName'];?></a>
               <a class="dropdown-item" href="Approve_appointment.php">Approve Appointment</a>
-                <a class="dropdown-item" href="show_Request.php">Request Rejected</a>
-                <a class="dropdown-item" href="student_rejected.php">Request Pending</a>
+                <a class="dropdown-item" href="show_Request.php">Request Pending</a>
+             
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="../function/teacher_logout_function.php">Logout</a>
               </div>
@@ -99,8 +99,8 @@ while($row = mysqli_fetch_array($result1))
     <p> </p>
     <h6>Comment:</h6>
     
-    <textarea cols="45" rows="5" name="message" >
-    <?php echo $comment?>
+    <textarea cols="45" rows="5" name="message" id="message">
+  
     </textarea>
     <div class="form-inline">
                   <div class="form-group">

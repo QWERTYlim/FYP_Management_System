@@ -37,8 +37,8 @@ if(isset($_POST['StudentID'])){
     }
     else{
         echo'<script> alert("Wrong!")</script>';
-        echo "$Pword";
-        // echo'<script>window.location="../student/login.php"</script>';
+       
+        echo'<script>window.location="../student/login.php"</script>';
         
     }
 }

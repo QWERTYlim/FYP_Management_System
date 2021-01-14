@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2021-01-14 11:58:00
--- 服务器版本： 10.4.17-MariaDB
--- PHP 版本： 8.0.0
+-- 生成日期： 2021-01-14 15:00:06
+-- 服务器版本： 10.4.14-MariaDB
+-- PHP 版本： 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,8 +63,8 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `faculty`, `date`, `time`, `room`, `teacher`, `student_id`, `student_name`, `approval`) VALUES
-(41, 'Engineering', '2021-01-14', '8.00am', '115a', 'Lim Pei Geok', 'D190250B', 'Alex Tan Boon Leng', 'Approve'),
-(42, 'Engineering', '2021-01-13', '8.00am', '115a', 'Lim Pei Geok', 'D190250B', 'Alex Tan Boon Leng', NULL);
+(43, 'Engineering', '2021-01-17', '8.00am', '115a', 'Lim Pei Geok', '', '', NULL),
+(44, 'Engineering', '2021-01-17', '8.00am', '115a', 'Lim Pei Geok', 'D190250B', 'Alex Tan Boon Leng', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,8 +112,7 @@ CREATE TABLE `formrequest` (
 --
 
 INSERT INTO `formrequest` (`id`, `sid`, `Title`, `file`, `size`, `request`, `teacher`, `comment`) VALUES
-(4, 'D190250B', 'FYPMS', 'jar_files.zip', 124066, 'Approve', 'Lim Pei Geok', 'Good'),
-(13, 'D190214B', 'FYPMS', 'HatchfulExport-All.zip', 30717, 'Reject', 'Lim Pei Geok', 'Pro in php');
+(16, 'D190250B', 'Final Year Project Management System', 'FYPMS.pdf', 140562, 'Approve', 'Lim Pei Geok', 'Good in php');
 
 -- --------------------------------------------------------
 
@@ -136,17 +135,6 @@ CREATE TABLE `recordmeeting` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `seen` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 转存表中的数据 `recordmeeting`
---
-
-INSERT INTO `recordmeeting` (`id`, `sid`, `file`, `date`, `size`, `issues`, `feedback`, `actionfeedback`, `matters`, `teacherName`, `created_at`, `updated_at`, `seen`) VALUES
-(1, 'D190250B', 'Project Documents (1).zip', NULL, 836026, 'a', 'a', 'a', 'a', '', '2020-12-29 20:10:26', '2020-12-29 20:10:26', ''),
-(3, 'D190250B', 'Test2020C (1).pdf', NULL, 124066, 'a', 'a', 'a', 'a', '123', '2020-12-29 20:10:52', '2020-12-29 20:10:52', 'Approve'),
-(4, 'D190250B', 'Test2020C.pdf', NULL, 124066, 'b', 'b', 'b', 'b', '123', '2020-12-29 20:11:34', '2020-12-29 20:11:34', 'Approve'),
-(5, 'D190250B', 'Test2020C (1).pdf', NULL, 124066, 'a', 'a', 'a', 'a', '123', '2020-12-29 20:53:38', '2020-12-29 20:53:38', 'approve'),
-(6, 'D190250B', 'Revison2021 (2).pdf', '2021-01-12', 140562, 'alex', 'yj', 'jw', 't', '123', '2021-01-12 15:05:50', '2021-01-12 15:05:50', 'approve');
 
 -- --------------------------------------------------------
 
@@ -176,7 +164,7 @@ INSERT INTO `room` (`id`, `name`) VALUES
 
 CREATE TABLE `studentdetail` (
   `ID` int(11) NOT NULL,
-  `TeacherID` int(11) NOT NULL DEFAULT 0,
+  `TeacherID` varchar(11) NOT NULL DEFAULT '0',
   `DepartmentName` varchar(255) NOT NULL,
   `StudentID` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -186,21 +174,7 @@ CREATE TABLE `studentdetail` (
 --
 
 INSERT INTO `studentdetail` (`ID`, `TeacherID`, `DepartmentName`, `StudentID`) VALUES
-(1, 456, 'Information Technology', 'D180293B'),
-(2, 123, 'Engineering', 'D190250B'),
-(5, 123, 'Engineering', 'D190214B'),
-(6, 0, 'Information Technology', 'D190241B'),
-(7, 0, 'Natural Science', 'D190242B'),
-(8, 0, 'Information Technology', 'D190243B'),
-(9, 0, 'Management Studies', 'yyyyy'),
-(10, 0, 'Engineering', 'aaaaa'),
-(11, 0, 'Engineering', 'bbbbb'),
-(12, 0, 'Engineering', 'dfgdfg'),
-(13, 0, 'Engineering', 'dfgdfg'),
-(14, 0, 'Engineering', 'dfgdfg'),
-(15, 0, 'Engineering', 'dfgdfg'),
-(16, 0, 'Engineering', 'lim'),
-(17, 0, 'Information Technology', 'D180293B');
+(19, 'T001A', 'Engineering', 'D190250B');
 
 -- --------------------------------------------------------
 
@@ -222,7 +196,8 @@ CREATE TABLE `studentinfo` (
 --
 
 INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `studentName`, `PhoneNumber`, `Email`) VALUES
-(17, 'D180293B', '62d272c026521417b26da3edf705a531e03b4ade', 'Lim Yu Jie', '', '');
+(17, 'D180293B', '62d272c026521417b26da3edf705a531e03b4ade', 'Lim Yu Jie', '', ''),
+(19, 'D190250B', 'ac2bdb56554421974666621364600be998f2934c', 'Alex Tan Boon Leng', '017-4139389', 'alex@gmail.com.my');
 
 -- --------------------------------------------------------
 
@@ -233,7 +208,7 @@ INSERT INTO `studentinfo` (`id`, `StudentID`, `Password`, `studentName`, `PhoneN
 CREATE TABLE `teacher` (
   `ID` int(5) NOT NULL,
   `TeacherID` varchar(255) NOT NULL,
-  `Password` varchar(55) NOT NULL,
+  `Password` text NOT NULL,
   `Name` varchar(25) NOT NULL,
   `DepartmentName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -243,11 +218,12 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`ID`, `TeacherID`, `Password`, `Name`, `DepartmentName`) VALUES
-(1, '123', 'lim', 'Lim Pei Geok', 'Engineering'),
-(2, '456', 'chan', 'Chan Ler-Kuan', 'Information Technology'),
-(3, '789', 'abc', 'MuMu', 'Information Technology'),
-(4, '14', 'abc', 'hk', 'Engineering'),
-(5, 'T100001c', 'a1001c', 'yj', 'Commerce');
+(1, 'T001A', 'f5b9427750e1b49e7ea0572daf4908c4de6358c2', 'Lim Pei Geok', 'Engineering'),
+(2, 'T002A', 'chan', 'Chan Ler-Kuan', 'Information Technology'),
+(3, 'T003A', 'abc', 'Yang Chee Beng', 'Information Technology'),
+(4, 'T004A', 'abc', 'Liao Hong Kai', 'Engineering'),
+(5, 'T005A', 'a1001c', 'Ng Shu Ling', 'Commerce'),
+(12, '123', 'f5b9427750e1b49e7ea0572daf4908c4de6358c2', '123', 'Engineering');
 
 -- --------------------------------------------------------
 
@@ -326,10 +302,8 @@ CREATE TABLE `uploadreport` (
 --
 
 INSERT INTO `uploadreport` (`id`, `sid`, `filetitle`, `name`, `size`, `comment`, `teacherName`, `date`, `Rating`) VALUES
-(14, 'D190250B', 'fyp', 'Test2020C (1).pdf', 124066, '    456', '123', NULL, 4.4),
 (15, 'D190214B', '11promax', 'Revison2021 (2).pdf', 140562, '', '0', '0000-00-00', NULL),
-(16, 'D190250B', '11promax', 'Revison2021 (2).pdf', 140562, '    123    ', '123', '0000-00-00', 3.6),
-(17, 'D190250B', '11promax', 'Revison2021 (2).pdf', 140562, '', '123', '2021-01-13', 3.7);
+(18, 'D190250B', '11promax', 'Revison2021 (1).pdf', 140562, '  nooob\r\n    ', 'T001A', '2021-01-16', 4);
 
 --
 -- 转储表的索引
@@ -421,7 +395,7 @@ ALTER TABLE `admin`
 -- 使用表AUTO_INCREMENT `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- 使用表AUTO_INCREMENT `department`
@@ -433,7 +407,7 @@ ALTER TABLE `department`
 -- 使用表AUTO_INCREMENT `formrequest`
 --
 ALTER TABLE `formrequest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- 使用表AUTO_INCREMENT `recordmeeting`
@@ -451,19 +425,19 @@ ALTER TABLE `room`
 -- 使用表AUTO_INCREMENT `studentdetail`
 --
 ALTER TABLE `studentdetail`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- 使用表AUTO_INCREMENT `studentinfo`
 --
 ALTER TABLE `studentinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- 使用表AUTO_INCREMENT `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- 使用表AUTO_INCREMENT `time`
@@ -481,7 +455,7 @@ ALTER TABLE `uploadref`
 -- 使用表AUTO_INCREMENT `uploadreport`
 --
 ALTER TABLE `uploadreport`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Lecture List</title>
+  <title>Lecturer List</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,9 +32,9 @@
       <div class="list-group list-group-flush">
       <a href="add_room.php" class="list-group-item list-group-item-action bg-light">Add New Meeting Place</a>
         <a href="add_student.php" class="list-group-item list-group-item-action bg-light">Add New Student</a>
-        <a href="add_teacher.php" class="list-group-item list-group-item-action bg-light">Add New Lecture</a>
+        <a href="add_teacher.php" class="list-group-item list-group-item-action bg-light">Add New Lecturer</a>
         <a href="all_student.php" class="list-group-item list-group-item-action bg-light">Student List</a>
-        <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecture List</a>
+        <a href="all_teachers.php" class="list-group-item list-group-item-action bg-light">Lecturer List</a>
       
         <a href="delReference.php" class="list-group-item list-group-item-action bg-light"> Past Year Report</a>
       </div>

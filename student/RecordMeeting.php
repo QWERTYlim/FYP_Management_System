@@ -6,6 +6,19 @@ if(!isset($_SESSION['StudentID']))
     window.location='login.php';
     </script>";
 }?>
+<?php
+ if($_SESSION['TeacherID']=='1')
+{
+    echo "<script type='text/javascript'>alert('Please Be Patient To Wait Responce From Lecturer');
+    window.location='StudentHome.php';
+    </script>";
+}elseif($_SESSION['TeacherID']=='0')
+{
+    echo "<script type='text/javascript'>alert('Pls Request Lecturer First');
+    window.location='requestForm.php';
+    </script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,7 +92,7 @@ if($_SESSION['TeacherID']=='0')
                                 <a class="dropdown-item"
                                     href="StudentHome.php"><?php echo $_SESSION['studentName'];?></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Student_Timeslot.php">Request Lecture</a>
+                                <a class="dropdown-item" href="requestForm.php">Request Lecturer</a>
                                 <a class="dropdown-item" href="Student_Timeslot.php">Timeslot</a>
                                 <a class="dropdown-item" href="Report_comment.php">Report Comment</a>
                                 <a class="dropdown-item" href="../function/student_logout_function.php">Logout</a>
