@@ -119,25 +119,25 @@ if($_SESSION['TeacherID']=='0')
                                 <div class="form-inline">
                                     <div class="form-group">
                                         <h6 for="date">Date&nbsp :&nbsp</h6>
-                                        <input type="date" name="dates" id="dates">
+                                        <input type="date" name="dates" id="dates" required>
 
                                     </div>
                                 </div>
                                 <p></p>
                                 <h6>Issues identified in previous meeting :</h6>
-                                <textarea cols="45" rows="3" name="message"></textarea>
+                                <textarea cols="45" rows="3" name="message" required></textarea>
                                 <br>
                                 <br>
                                 <h6>Feedback received in previous meeting :</h6>
-                                <textarea cols="45" rows="3" name="message1"></textarea>
+                                <textarea cols="45" rows="3" name="message1" required></textarea>
                                 <br>
                                 <br>
                                 <h6>Action taken on feedback :</h6>
-                                <textarea cols="45" rows="3" name="message2"></textarea>
+                                <textarea cols="45" rows="3" name="message2" required></textarea>
                                 <br>
                                 <br>
                                 <h6>Matters to discuss :</h6>
-                                <textarea cols="45" rows="3" name="message3"></textarea>
+                                <textarea cols="45" rows="3" name="message3" required></textarea>
                                 <br>
                                 <br>
 

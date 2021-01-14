@@ -82,7 +82,7 @@ textarea {
     <p></p>
     <div style="margin-left:10px;">
     <h6>Room Name :</h6>
-    <input type="text" name="room" >
+    <input type="text" name="room" required>
     
    
     <input class="btn-primary btn-sm"type="submit" name="submit"value="submit"style="margin-left:20px;">

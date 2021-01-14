@@ -5,10 +5,12 @@ include '../includes/db.connect.php'
 if(isset($_POST['AdminID'])){
     
     $AdminID=$_POST['AdminID'];
-    $Password=$_POST['Password'];
+
+    $Pword=$_POST['Password'];
+    $Pword=sha1("$Pword");
     
     
-    $result=mysqli_query($connect,"SELECT*FROM admin where AdminID='".$AdminID."'and Password='".$Password."' ");
+    $result=mysqli_query($connect,"SELECT*FROM admin where AdminID='".$AdminID."'and Password='".$Pword."' ");
 	if(mysqli_num_rows($result)>0){
        
         $_SESSION['adminID']=$AdminID;

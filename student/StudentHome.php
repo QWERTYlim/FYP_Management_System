@@ -89,7 +89,7 @@ if(!isset($_SESSION['StudentID']))
           <div style="margin-left:10px">
             <h6 for="Email">Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:
             </h6>
-            <input id="Email" name="Email" autofocus>
+            <input id="Email" name="Email" autofocus required>
             <p></p>
           </div>
           <div style="margin-left:10px">

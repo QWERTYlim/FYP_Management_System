@@ -132,7 +132,7 @@ if($_SESSION['TeacherID']=='0')
 								</select>
 								<p></p>
 								<h6 for="date">Date&nbsp:</h6>
-								<input type="date" name="dates" id="dates">
+								<input type="date" name="dates" id="dates" required>
 								</p>
 
 								<button id="appointment_btn" name="appointment_btn" class="btn btn-sm btn-primary"

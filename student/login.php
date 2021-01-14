@@ -35,13 +35,13 @@ if(isset($_SESSION['StudentID']))
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid Student ID is required: D180293B">
-						<input class="input100" type="text" name="StudentID" placeholder="StudentID">
+						<input class="input100" type="text" name="StudentID" placeholder="StudentID" required>
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
 					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="Password" placeholder="Password">
+						<input class="input100" type="password" name="Password" placeholder="Password" required>
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>

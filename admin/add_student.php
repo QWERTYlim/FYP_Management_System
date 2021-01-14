@@ -82,13 +82,13 @@ textarea {
    <div style="margin-left:10px;">
     
     <h6>Student ID :</h6>
-    <input type="text" name="StudentID" >
+    <input type="text" name="StudentID" required>
     <p></p>
     <h6>Student Password :</h6>
-    <input type="text" name="password" >
+    <input type="text" name="password" required>
     <p></p>
     <h6>Student Name :</h6>
-    <input type="text" name="name" >
+    <input type="text" name="name" required>
     <p></p>
     <div style="width:100%;">
     <?php

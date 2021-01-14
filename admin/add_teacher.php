@@ -83,13 +83,13 @@ textarea {
    <div style="margin-left:10px;">
     
     <h6>Lecturer ID :</h6>
-    <input type="text" name="TeacherID" >
+    <input type="text" name="TeacherID" required>
     <p></p>
     <h6>Lecturer Password :</h6>
-    <input type="text" name="Tpassword" >
+    <input type="text" name="Tpassword" required>
     <p></p>
     <h6>Lecturer Name :</h6>
-    <input type="text" name="Tname" >
+    <input type="text" name="Tname" required>
     <p></p>
     <div style="width:100%;">
     <?php

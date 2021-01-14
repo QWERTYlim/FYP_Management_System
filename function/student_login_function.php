@@ -7,9 +7,6 @@ if(isset($_POST['StudentID'])){
     $StudentID=$_POST['StudentID'];
 
     $Pword=$_POST['Password'];
-
-    // $Pword=sha1("Pword");
-    // $Password=sha1('$Password');
     $Pword=sha1("$Pword");
 
 
