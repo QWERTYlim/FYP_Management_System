@@ -1,0 +1,70 @@
+<?php
+$connect = mysqli_connect("localhost", "root", "", "tests");
+$output = '';
+if(isset($_POST["query"]))
+{
+	$search = mysqli_real_escape_string($connect, $_POST["query"]);
+	$query = "
+	SELECT * FROM uploadref
+	WHERE title LIKE '%".$search."%'";
+}
+else
+{
+	$query = "
+	SELECT * FROM uploadref ORDER BY name";
+}
+$result = mysqli_query($connect, $query);
+if(mysqli_num_rows($result) > 0)
+{
+	$output .= '<div class="table-responsive">
+					<table class="table table bordered">
+						<tr>
+						<th>Title</th>
+							<th>File Name</th>
+							<th>Download</th>
+							
+						</tr>';
+	while($row = mysqli_fetch_array($result))
+	{
+		$output .= '
+			<tr>
+			<td>'.$row["title"].'</td>
+                <td>'.$row["name"].'</td>
+                 <td><a href="../function/stu_ref_fetch.php?file_name='.$row["name"].'">Download</a></td>
+				 
+			</tr>	
+		';
+	}
+	echo $output;
+}
+else
+{
+	echo 'Data Not Found';
+}
+
+
+if (isset($_GET['file_name'])) {
+    $name = $_GET['file_name'];
+    
+    // fetch file to download from database
+    $sql = "SELECT * FROM uploadref WHERE name=$name";
+    $result = mysqli_query($connect, $sql);
+    
+    $filepath = '../ref_upload/' . $name;
+    echo'<script> alert("Wrong!")</script>';
+
+
+    if (file_exists($filepath)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($filepath));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize('../ref_upload/' . $name));
+        readfile('../ref_upload/' . $name);
+        exit;
+    }
+
+}
+?>
