@@ -1,4 +1,15 @@
 <?php include '../includes/db.connect.php'?>
+
+<?php
+if(!isset($_SESSION['adminID']))
+{
+  
+    echo "<script type='text/javascript'>alert('Please Login');
+    window.location='admin_login.php';
+    </script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
