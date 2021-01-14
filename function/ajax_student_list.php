@@ -8,13 +8,18 @@ $status=$_GET["status"];
 if($status=="disp")
 {
 $connect = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
-$query = "SELECT * FROM  formrequest WHERE teacher='". $_SESSION['TeacherName']."'AND request='Approve'" ;
+$query = "SELECT studentinfo.studentName,formrequest.comment,formrequest.file,formrequest.Title,formrequest.sid,formrequest.Title,studentinfo.Email,studentinfo.PhoneNumber FROM formrequest LEFT JOIN studentinfo ON formrequest.sid=studentinfo.StudentID WHERE teacher='". $_SESSION['TeacherName']."'AND request='Approve'" ;
+
 $res = mysqli_query($connect,$query); 
-echo "<table class='table table-striped table-bordered' style='width:60%;margin-left: auto;margin-right: auto;'>";
+echo "<table class='table table-striped table-bordered' style='width:80%;margin-left: auto;margin-right: auto;'>";
 echo "<thead>";
 	echo "<tr style='border:2px solid black,font-weight: bold;'>" ;
+		echo "<th style='border:2px solid black'>";echo"Student Name";echo "</th>";
 		echo "<th style='border:2px solid black'>";echo"Student ID";echo "</th>";
 		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Title";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"E-Mail";echo "</th>";
+		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Phone Number";echo "</th>";
+
 		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Download";echo "</th>";
 		echo "<th style='border:2px solid black'>";echo'&nbsp';echo"Comment";echo "</th>";
 		
@@ -23,8 +28,12 @@ echo "</thead>";
 
 while($row=mysqli_fetch_array($res)){
 	echo "<tr style='border:2px solid black'>";
+	echo "<td style='border:2px solid black'>";echo $row["studentName"];echo '&nbsp'; "</td>";
 	echo "<td style='border:2px solid black'>";echo $row["sid"];echo '&nbsp'; "</td>";
 	echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["Title"];echo '&nbsp'; "</td>";
+	echo "<td style='border:2px solid black'>";echo $row["Email"];echo '&nbsp'; "</td>";
+	echo "<td style='border:2px solid black'>";echo $row["PhoneNumber"];echo '&nbsp'; "</td>";
+
 	echo "<td style='border:2px solid black'>";echo'&nbsp';?><a href="../function/ajax_student_request.php?file_name=<?php echo $row["file"]; ?>">Download</a><?php echo '&nbsp';"</td>";
 	echo "<td style='border:2px solid black'>";echo'&nbsp';echo $row["comment"];echo'&nbsp'; "</td>";
 	
